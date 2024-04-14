@@ -1,4 +1,4 @@
-namespace LeMail.Domain.Primitives;
+namespace LeMail.Domain.Validations.Primitives;
 
 public enum Role
 {
