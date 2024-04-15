@@ -1,10 +1,10 @@
 using FluentValidation;
 
-namespace LeMail.Domain.Validations.Validators;
+namespace LeMail.Domain.Validations.Validators.Common;
 
-public class BodyValidator : AbstractValidator<string>
+public class DateSentValidator : AbstractValidator<DateTime>
 {
-    public BodyValidator(string paramName)
+    public DateSentValidator(string paramName)
     {
         RuleFor(param => param)
             .NotNull().WithMessage(string.Format(ExceptionMessages.NullError, paramName))

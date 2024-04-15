@@ -1,10 +1,10 @@
 using FluentValidation;
 
-namespace LeMail.Domain.Validations.Validators;
+namespace LeMail.Domain.Validations.Validators.Common;
 
-public class PasswordHashValidator : AbstractValidator<string>
+public class SaltValidator : AbstractValidator<string>
 {
-    public PasswordHashValidator(string paramName)
+    public SaltValidator(string paramName)
     {
         RuleFor(param => param)
             .NotNull().WithMessage(string.Format(ExceptionMessages.NullError, paramName))

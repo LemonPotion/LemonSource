@@ -1,10 +1,10 @@
 using FluentValidation;
 
-namespace LeMail.Domain.Validations.Validators;
+namespace LeMail.Domain.Validations.Validators.Common;
 
-public class DescriptionValidator: AbstractValidator<string>
+public class IdValidator : AbstractValidator<Guid>
 {
-    public DescriptionValidator(string paramName)
+    public IdValidator(string paramName)
     {
         RuleFor(param => param)
             .NotNull().WithMessage(string.Format(ExceptionMessages.NullError, paramName))

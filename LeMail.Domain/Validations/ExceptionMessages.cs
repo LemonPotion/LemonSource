@@ -1,5 +1,6 @@
 namespace LeMail.Domain.Validations;
 
+//TODO: заменить на делегаты
 public abstract class ExceptionMessages
 {
     /// <summary>

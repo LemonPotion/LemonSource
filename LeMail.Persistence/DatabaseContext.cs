@@ -15,9 +15,9 @@ public class DatabaseContext : DbContext, IDbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new ContactConfiguration());
         modelBuilder.ApplyConfiguration(new MessageConfiguration());
-        base.OnModelCreating(modelBuilder);
     }
 }

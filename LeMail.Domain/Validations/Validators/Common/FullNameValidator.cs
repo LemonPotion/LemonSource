@@ -1,7 +1,7 @@
 using FluentValidation;
 using LeMail.Domain.ValueObjects;
 
-namespace LeMail.Domain.Validations.Validators;
+namespace LeMail.Domain.Validations.Validators.Common;
 
 public class FullNameValidator: AbstractValidator<FullName>
 {

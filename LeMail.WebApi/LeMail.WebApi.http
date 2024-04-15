@@ -1,0 +1,6 @@
+@LeMail.WebApi_HostAddress = http://localhost:5123
+
+GET {{LeMail.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

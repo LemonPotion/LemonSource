@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace LeMail.Domain.Validations.Validators;
+namespace LeMail.Domain.Validations.Validators.Common;
 
 public class EmailValidator : AbstractValidator<string>
 {
