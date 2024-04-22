@@ -13,7 +13,11 @@ public class User : BaseEntity
     
     public ICollection<Message> Messages { get; set; }
     public ICollection<Contact> Contacts { get; set; }
-    
+
+    public User()
+    {
+        
+    }
     public User(string email, string salt, string passwordHash, FullName fullName, ICollection<Message> messages, ICollection<Contact> contacts)
     {
         Email = email;
@@ -22,5 +26,12 @@ public class User : BaseEntity
         FullName = fullName;
         Messages = messages;
         Contacts = contacts;
+    }
+
+    public void Update(string email, string firstName, string lastName, string middleName)
+    {
+        FullName.Update(firstName, lastName, middleName);
+        Email = email;
+        
     }
 }

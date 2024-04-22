@@ -12,4 +12,12 @@ public class FullName: BaseValueObject
         LastName = lastName;
         MiddleName = middleName;
     }
+
+    public FullName Update(string firstName, string lastName, string middleName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        MiddleName = middleName;
+        return this;
+    }
 }

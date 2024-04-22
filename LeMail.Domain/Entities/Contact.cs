@@ -7,6 +7,12 @@ public class Contact : BaseEntity
     public string Description { get; set; }
     public User User { get; set; }
 
+    public Guid UserId { get; set; } // Foreign key
+    
+    // Добавьте конструктор без параметров
+    public Contact() { }
+
+    // Измените ваш текущий конструктор
     public Contact(Guid id, string contactName, string contactMail , string description, User user)
     {
         Id = id;
@@ -14,5 +20,6 @@ public class Contact : BaseEntity
         ContactMail = contactMail;
         Description = description;
         User = user;
+        UserId = user.Id;
     }
 }

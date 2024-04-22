@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-
 namespace LeMail.Persistence;
 
 public class DbInitializer
