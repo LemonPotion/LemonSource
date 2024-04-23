@@ -8,9 +8,9 @@ namespace LeMail.Persistence.Repositories;
 //TODO: разобраться почему не добавляет в бд
 public class UserRepository : IUserRepository
 {
-    private readonly DbContext _dbContext;
+    private readonly DatabaseContext _dbContext;
 
-    public UserRepository(DbContext dbContext)
+    public UserRepository(DatabaseContext dbContext)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }

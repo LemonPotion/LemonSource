@@ -13,7 +13,8 @@ using LeMail.Application.Interfaces.Services;
     //TODO: сделать рабочий маппинг
 namespace LeMail.Application.Services
 {
-    public class UserService
+    //TODO: разобраться почему не добавляет в бд
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
@@ -26,35 +27,43 @@ namespace LeMail.Application.Services
 
         public async Task<CreateUserResponse> CreateUserAsync(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            var user = _mapper.Map<User>(request);
-            var createdUser = await _userRepository.CreateAsync(user, cancellationToken);
-            var response = _mapper.Map<CreateUserResponse>(createdUser);
-            return response;
+            var userEntity = _mapper.Map<User>(request);
+            var createdUser = await _userRepository.CreateAsync(userEntity, cancellationToken);
+            return _mapper.Map<CreateUserResponse>(createdUser);
         }
 
-        public async Task<DeleteUserResponse> DeleteUserAsync(DeleteUserRequest deleteUserRequest, CancellationToken cancellationToken)
+        public async Task<GetUserResponse> GetUserByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            var user = _mapper.Map<User>(deleteUserRequest);
-            var Isdeleted = _userRepository.GetByIdAsync(user.Id, cancellationToken);
-            var response = _mapper.Map<DeleteUserResponse>(Isdeleted);
-            return response;
+            var userEntity = await _userRepository.GetByIdAsync(id, cancellationToken);
+            return _mapper.Map<GetUserResponse>(userEntity);
         }
 
-        public async Task<GetUserResponse> GetUserAsync(Guid id, CancellationToken cancellationToken)
-        {
-            var user = await _userRepository.GetByIdAsync(id, cancellationToken);
-            var response = _mapper.Map<GetUserResponse>(user);
-            return response;
-        }
-        
         public async Task<UpdateUserResponse> UpdateUserAsync(UpdateUserRequest request, CancellationToken cancellationToken)
         {
-            var getUserByIdResponse = await GetUserAsync(request.Id, cancellationToken);
-            var user = _mapper.Map<User>(getUserByIdResponse);
-            user.Update(request.Email, request.FullName.LastName, request.FullName.FirstName, request.FullName.MiddleName);
-            await _userRepository.UpdateAsync(user,cancellationToken);
-            var response = _mapper.Map<UpdateUserResponse>(user);
-            return response;
+            var existingUser = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
+            if (existingUser == null)
+            {
+                // Handle the case where the user doesn't exist
+                return null;
+            }
+
+            _mapper.Map(request, existingUser);
+            var updatedUser = await _userRepository.UpdateAsync(existingUser, cancellationToken);
+            return _mapper.Map<UpdateUserResponse>(updatedUser);
+        }
+
+        public async Task<bool> DeleteUserByIdAsync(Guid id, CancellationToken cancellationToken)
+        {
+            return await _userRepository.DeleteByIdAsync(id, cancellationToken);
+        }
+
+        public async Task<List<CreateUserResponse>> GetAllUsersAsync(CancellationToken cancellationToken)
+        {
+            var userEntities = await _userRepository.GetAllListAsync(cancellationToken);
+            return _mapper.Map<List<CreateUserResponse>>(userEntities);
         }
     }
+
+
+
 }

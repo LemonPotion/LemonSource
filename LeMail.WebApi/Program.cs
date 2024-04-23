@@ -1,5 +1,7 @@
 
 using LeMail.Application.Interfaces.Repository;
+using LeMail.Application.Interfaces.Services;
+using LeMail.Application.Mapping;
 using LeMail.Application.Services;
 using LeMail.Persistence;
 using LeMail.Persistence.Repositories;
@@ -14,20 +16,19 @@ namespace LeMail.WebApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            
-            builder.Services.AddScoped<UserService>();
-            
-            builder.Services.AddScoped<DbContext, DatabaseContext>();
-            
-            builder.Services.AddDbContext<DatabaseContext>(x =>
-                x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            
+            builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=LeMail;Trusted_Connection=True;"));
+
+            // Регистрация сервисов и репозиториев
+            builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+            // Настройка AutoMapper
+            builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 
             var app = builder.Build();
 
@@ -39,10 +40,13 @@ namespace LeMail.WebApi
             }
 
             app.UseHttpsRedirection();
+
             app.UseAuthorization();
+
+
             app.MapControllers();
+
             app.Run();
         }
-
     }
 }

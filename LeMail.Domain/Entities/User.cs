@@ -1,4 +1,6 @@
+using LeMail.Domain.Validations;
 using LeMail.Domain.Validations.Primitives;
+using LeMail.Domain.Validations.Validators.Entities;
 using LeMail.Domain.ValueObjects;
 
 namespace LeMail.Domain.Entities;
@@ -16,16 +18,9 @@ public class User : BaseEntity
 
     public User()
     {
-        
-    }
-    public User(string email, string salt, string passwordHash, FullName fullName, ICollection<Message> messages, ICollection<Contact> contacts)
-    {
-        Email = email;
-        Salt = salt;
-        PasswordHash = passwordHash;
-        FullName = fullName;
-        Messages = messages;
-        Contacts = contacts;
+        var validator = new UserValidator(nameof(User));
+
+        validator.ValidateWithExceptions(this);
     }
 
     public void Update(string email, string firstName, string lastName, string middleName)

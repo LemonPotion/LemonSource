@@ -1,48 +1,65 @@
 ﻿using LeMail.Application.Dto_s.User.Requests;
 using LeMail.Application.Dto_s.User.Responses;
-using LeMail.Application.Services;
+using LeMail.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
+//TODO: сделать кастомные коды ошибок
 namespace LeMail.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UserController(UserService userService)
+        public UserController(IUserService userService) 
         {
             _userService = userService;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> CreateUser(CreateUserRequest request)
+        [HttpPost] // done
+        public async Task<IActionResult> CreateUser(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            var response = await _userService.CreateUserAsync(request, default); // Параметр CancellationToken можно передать при необходимости
+            var response = await _userService.CreateUserAsync(request, cancellationToken);
             return Ok(response);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<DeleteUserResponse>> DeleteUser(Guid id)
+        [HttpGet("{id}")] // done
+        public async Task<IActionResult> GetUserById(Guid id)
         {
-            var request = new DeleteUserRequest { Id = id };
-            var response = await _userService.DeleteUserAsync(request, default); // Параметр CancellationToken можно передать при необходимости
+            var response = await _userService.GetUserByIdAsync(id, HttpContext.RequestAborted);
+            if (response == null)
+                return NotFound();
             return Ok(response);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<GetUserResponse>> GetUser(Guid id)
+        [HttpPut] //done
+        public async Task<IActionResult> UpdateUser(UpdateUserRequest request)
         {
-            var response = await _userService.GetUserAsync(id, default); // Параметр CancellationToken можно передать при необходимости
+
+            var response = await _userService.UpdateUserAsync(request, HttpContext.RequestAborted);
+            if (response == null)
+                return NotFound();
             return Ok(response);
         }
 
-        [HttpPut]
-        public async Task<ActionResult<UpdateUserResponse>> UpdateUser(UpdateUserRequest request)
+        [HttpDelete("{id}")]//done
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
-            var response = await _userService.UpdateUserAsync(request, default); // Параметр CancellationToken можно передать при необходимости
+            var result = await _userService.DeleteUserByIdAsync(id, HttpContext.RequestAborted);
+            if (!result)
+                return NotFound();
+            return NoContent();
+        }
+
+        [HttpGet]//done
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var response = await _userService.GetAllUsersAsync(HttpContext.RequestAborted);
             return Ok(response);
         }
     }

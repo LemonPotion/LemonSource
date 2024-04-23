@@ -7,11 +7,9 @@ namespace LeMail.Persistence;
 
 public class DatabaseContext : DbContext
 {
-    private readonly IConfiguration _configuration;
-
-    public DatabaseContext(IConfiguration configuration)
+    public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
-        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+
     }
 
     public DbSet<User> Users { get; set; }
