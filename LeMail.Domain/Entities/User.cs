@@ -27,6 +27,8 @@ public class User : BaseEntity
     {
         FullName.Update(firstName, lastName, middleName);
         Email = email;
-        
+        var validator = new UserValidator(nameof(User));
+
+        validator.ValidateWithExceptions(this);
     }
 }

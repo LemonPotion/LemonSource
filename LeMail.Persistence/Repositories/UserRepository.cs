@@ -25,7 +25,7 @@ public class UserRepository : IUserRepository
         var user = await _dbContext.FindAsync<User>(new object[] { id }, cancellationToken);
         if (user is not null)
             return user;
-        throw new ArgumentNullException();
+        throw new ArgumentNullException(nameof(user));
     }
 
     public async Task<User> UpdateAsync(User entity, CancellationToken cancellationToken)

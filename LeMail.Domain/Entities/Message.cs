@@ -1,3 +1,6 @@
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
+
 namespace LeMail.Domain.Entities;
 
 public class Message : BaseEntity
@@ -10,16 +13,16 @@ public class Message : BaseEntity
     public DateTime DateSent { get; set; }
 
     // Добавьте конструктор без параметров
-    public Message() { }
-
-    // Измените ваш текущий конструктор
-    public Message(Guid id, User user, DateTime dateSent, string subject, string body)
+    public Message()
     {
-        Id = id;
-        User = user;
-        UserId = user.Id; // Assign the foreign key
+        var validator = new MessageValidator(nameof(Message));
+        validator.ValidateWithExceptions(this);
+    }
+    public void Update(string subject, string body)
+    {
         Subject = subject;
-        Body = body; 
-        DateSent = dateSent;
+        Body = body;
+        var validator = new MessageValidator(nameof(Message));
+        validator.ValidateWithExceptions(this);
     }
 }

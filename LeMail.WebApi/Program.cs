@@ -21,14 +21,18 @@ namespace LeMail.WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=LeMail;Trusted_Connection=True;"));
+            builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Регистрация сервисов и репозиториев
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            
+            builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+            builder.Services.AddScoped<IMessageService, MessageService>();
 
             // Настройка AutoMapper
             builder.Services.AddAutoMapper(typeof(UserMappingProfile));
+            builder.Services.AddAutoMapper(typeof(MessageMappingProfile));
 
             var app = builder.Build();
 
