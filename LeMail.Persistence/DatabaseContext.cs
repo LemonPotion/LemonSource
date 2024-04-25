@@ -1,7 +1,6 @@
 using LeMail.Domain.Entities;
 using LeMail.Persistence.EntityTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace LeMail.Persistence;
 

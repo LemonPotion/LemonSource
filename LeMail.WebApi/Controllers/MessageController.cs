@@ -15,14 +15,14 @@ public class MessageController : ControllerBase
     }
     
     [HttpPost] // done
-    public async Task<IActionResult> CreateUser(CreateMessageRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateMessage(CreateMessageRequest request, CancellationToken cancellationToken)
     {
         var response = await _messageService.CreateMessageAsync(request, cancellationToken);
         return Ok(response);
     }
 
     [HttpGet("{id}")] // done
-    public async Task<IActionResult> GetUserById(Guid id)
+    public async Task<IActionResult> GetMessageById(Guid id)
     {
         var response = await _messageService.GetMessageByIdAsync(id, HttpContext.RequestAborted);
         if (response == null)
@@ -31,28 +31,28 @@ public class MessageController : ControllerBase
     }
 
     [HttpPut] //done
-    public async Task<IActionResult> UpdateUser(UpdateMessageRequest request)
+    public async Task<IActionResult> UpdateMessage(UpdateMessageRequest request, CancellationToken cancellationToken)
     {
 
-        var response = await _messageService.UpdateMessageAsync(request, HttpContext.RequestAborted);
+        var response = await _messageService.UpdateMessageAsync(request, cancellationToken);
         if (response == null)
             return NotFound();
         return Ok(response);
     }
 
     [HttpDelete("{id}")]//done
-    public async Task<IActionResult> DeleteUser(Guid id)
+    public async Task<IActionResult> DeleteMessage(Guid id, CancellationToken cancellationToken)
     {
-        var result = await _messageService.DeleteMessageByIdAsync(id, HttpContext.RequestAborted);
+        var result = await _messageService.DeleteMessageByIdAsync(id, cancellationToken);
         if (!result)
             return NotFound();
         return NoContent();
     }
 
     [HttpGet]//done
-    public async Task<IActionResult> GetAllUsers()
+    public async Task<IActionResult> GetAllMessages(CancellationToken cancellationToken)
     {
-        var response = await _messageService.GetAllMessagesAsync(HttpContext.RequestAborted);
+        var response = await _messageService.GetAllMessagesAsync(cancellationToken);
         return Ok(response);
     }
 }

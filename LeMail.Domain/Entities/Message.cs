@@ -10,7 +10,7 @@ public class Message : BaseEntity
 
     public string Subject { get; set; }
     public string Body { get; set; }
-    public DateTime DateSent { get; set; }
+    public DateTime DateSent { get; set; } = DateTime.Now;
 
     // Добавьте конструктор без параметров
     public Message()

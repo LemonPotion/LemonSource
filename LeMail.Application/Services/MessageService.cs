@@ -31,15 +31,16 @@ public class MessageService : IMessageService
     {
         var message = await _messageRepository.GetByIdAsync(id,cancellationToken);
         var response = _mapper.Map<GetMessageResponse>(message);
+        
         return response;
     }
 
     public async Task<UpdateMessageResponse> UpdateMessageAsync(UpdateMessageRequest request, CancellationToken cancellationToken)
     {
         var message = await _messageRepository.GetByIdAsync(request.Id, cancellationToken);
-        _mapper.Map(request, message);
         var updatedMessage = await _messageRepository.UpdateAsync(message, cancellationToken);
         var response = _mapper.Map<UpdateMessageResponse>(updatedMessage);
+        
         return response;
     }
 
@@ -52,6 +53,7 @@ public class MessageService : IMessageService
     {
         var messageEntities = await _messageRepository.GetAllListAsync(cancellationToken);
         var response = _mapper.Map<List<GetMessageResponse>>(messageEntities);
+        
         return response;
     }
 }

@@ -1,5 +1,7 @@
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
+
 namespace LeMail.Domain.Entities;
-//TODO: доделать валидации
 public class Contact : BaseEntity
 {
     public string ContactName { get; set; }
@@ -10,16 +12,17 @@ public class Contact : BaseEntity
     public Guid UserId { get; set; } // Foreign key
     
     // Добавьте конструктор без параметров
-    public Contact() { }
-
-    // Измените ваш текущий конструктор
-    public Contact(Guid id, string contactName, string contactMail , string description, User user)
+    public Contact()
     {
-        Id = id;
+        var validator = new ContactValidator(nameof(Contact));
+        validator.ValidateWithExceptions(this);
+    }
+    public void Update(string contactName, string contactMail, string description)
+    {
         ContactName = contactName;
         ContactMail = contactMail;
         Description = description;
-        User = user;
-        UserId = user.Id;
+        var validator = new ContactValidator(nameof(Contact));
+        validator.ValidateWithExceptions(this);
     }
 }

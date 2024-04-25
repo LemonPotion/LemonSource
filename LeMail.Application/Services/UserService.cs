@@ -1,15 +1,10 @@
 using AutoMapper;
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using LeMail.Application.Dto_s.User;
 using LeMail.Application.Dto_s.User.Requests;
 using LeMail.Application.Dto_s.User.Responses;
 using LeMail.Application.Interfaces.Services;
 
-    //TODO: сделать остальные сервисы(Contact)
 namespace LeMail.Application.Services
 {
 
@@ -40,7 +35,6 @@ namespace LeMail.Application.Services
         public async Task<UpdateUserResponse> UpdateUserAsync(UpdateUserRequest request, CancellationToken cancellationToken)
         {
             var existingUser = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
-            _mapper.Map(request, existingUser);
             var updatedUser = await _userRepository.UpdateAsync(existingUser, cancellationToken);
             return _mapper.Map<UpdateUserResponse>(updatedUser);
         }

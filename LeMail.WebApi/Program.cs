@@ -30,9 +30,13 @@ namespace LeMail.WebApi
             builder.Services.AddScoped<IMessageRepository, MessageRepository>();
             builder.Services.AddScoped<IMessageService, MessageService>();
 
+            builder.Services.AddScoped<IContactRepository,ContactRepository>();
+            builder.Services.AddScoped<IContactService, ContactService>();
+
             // Настройка AutoMapper
             builder.Services.AddAutoMapper(typeof(UserMappingProfile));
             builder.Services.AddAutoMapper(typeof(MessageMappingProfile));
+            builder.Services.AddAutoMapper(typeof(ContactMappingProfile));
 
             var app = builder.Build();
 

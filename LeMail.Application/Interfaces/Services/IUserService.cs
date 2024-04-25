@@ -1,6 +1,5 @@
 using LeMail.Application.Dto_s.User.Requests;
 using LeMail.Application.Dto_s.User.Responses;
-using LeMail.Application.Interfaces.Repository;
 
 namespace LeMail.Application.Interfaces.Services;
 

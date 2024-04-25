@@ -1,11 +1,8 @@
 using LeMail.Application.Interfaces.Repository;
-using LeMail.Application.Interfaces.Services;
 using LeMail.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LeMail.Persistence.Repositories;
-
-//TODO: разобраться почему не добавляет в бд
 public class UserRepository : IUserRepository
 {
     private readonly DatabaseContext _dbContext;
@@ -22,15 +19,16 @@ public class UserRepository : IUserRepository
     }
     public async Task<User> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        var user = await _dbContext.FindAsync<User>(new object[] { id }, cancellationToken);
+        var user = await _dbContext.FindAsync<User>( id , cancellationToken);
         if (user is not null)
             return user;
         throw new ArgumentNullException(nameof(user));
     }
 
+    //TODO: сделать рабочим
     public async Task<User> UpdateAsync(User entity, CancellationToken cancellationToken)
     {
-        _dbContext.Update(entity); // Помечаем сущность как измененную
+        _dbContext.Users.Update(entity); // Помечаем сущность как измененную
         await _dbContext.SaveChangesAsync(cancellationToken); // Сохраняем изменения в базе данных
         return entity;
     }

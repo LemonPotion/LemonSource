@@ -22,15 +22,16 @@ public class MessageRepository : IMessageRepository
 
     public async Task<Message> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        var message = await _dbContext.FindAsync<Message>(new object[] { id }, cancellationToken);
+        var message = await _dbContext.FindAsync<Message>(id , cancellationToken);
         if (message is not null)
             return message;
         throw new ArgumentNullException(nameof(message));
     }
 
+    //TODO: сделать рабочим
     public async Task<Message> UpdateAsync(Message entity, CancellationToken cancellationToken)
     {
-        _dbContext.Update(entity);
+        _dbContext.Messages.Update(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;
     }
