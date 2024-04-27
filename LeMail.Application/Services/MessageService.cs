@@ -38,6 +38,9 @@ public class MessageService : IMessageService
     public async Task<UpdateMessageResponse> UpdateMessageAsync(UpdateMessageRequest request, CancellationToken cancellationToken)
     {
         var message = await _messageRepository.GetByIdAsync(request.Id, cancellationToken);
+        
+        _mapper.Map(request, message);
+        
         var updatedMessage = await _messageRepository.UpdateAsync(message, cancellationToken);
         var response = _mapper.Map<UpdateMessageResponse>(updatedMessage);
         

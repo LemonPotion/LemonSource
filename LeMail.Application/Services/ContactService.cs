@@ -38,6 +38,7 @@ public class ContactService : IContactService
     public async Task<UpdateContactResponse> UpdateContactAsync(UpdateContactRequest request, CancellationToken cancellationToken)
     {
         var contact = await _contactRepository.GetByIdAsync(request.Id, cancellationToken);
+        _mapper.Map(request, contact);
         var updatedContact = await _contactRepository.UpdateAsync(contact, cancellationToken);
         var response = _mapper.Map<UpdateContactResponse>(updatedContact);
 
@@ -51,7 +52,7 @@ public class ContactService : IContactService
 
     public async Task<List<GetContactResponse>> GetAllContactsAsync(CancellationToken cancellationToken)
     {
-        var contacts = _contactRepository.GetAllListAsync(cancellationToken);
+        var contacts = await _contactRepository.GetAllListAsync(cancellationToken);
         var response = _mapper.Map<List<GetContactResponse>>(contacts);
 
         return response;

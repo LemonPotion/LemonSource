@@ -13,11 +13,10 @@ public class FullName: BaseValueObject
         MiddleName = middleName;
     }
 
-    public FullName Update(string firstName, string lastName, string middleName)
+    public void Update(FullName fullName)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        MiddleName = middleName;
-        return this;
+        FirstName = fullName.FirstName;
+        LastName = fullName.LastName;
+        MiddleName = fullName.MiddleName;
     }
 }

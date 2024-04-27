@@ -1,5 +1,7 @@
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Domain.Entities;
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LeMail.Persistence.Repositories;
@@ -14,6 +16,9 @@ public class ContactRepository : IContactRepository
     }
     public async Task<Contact> CreateAsync(Contact entity, CancellationToken cancellationToken)
     {
+        var validator = new ContactValidator(nameof(Contact));
+        validator.ValidateWithExceptions(entity);
+
         _dbContext.Add(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;
@@ -29,7 +34,9 @@ public class ContactRepository : IContactRepository
 
     public async Task<Contact> UpdateAsync(Contact entity, CancellationToken cancellationToken)
     {
-        _dbContext.Contacts.Update(entity);
+        entity.Update(entity.ContactName, entity.ContactMail, entity.Description);
+        
+        _dbContext.Update(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;
     }

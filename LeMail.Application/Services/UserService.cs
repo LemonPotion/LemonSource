@@ -34,8 +34,11 @@ namespace LeMail.Application.Services
 
         public async Task<UpdateUserResponse> UpdateUserAsync(UpdateUserRequest request, CancellationToken cancellationToken)
         {
-            var existingUser = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
-            var updatedUser = await _userRepository.UpdateAsync(existingUser, cancellationToken);
+            var user = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
+            _mapper.Map(request, user);
+            
+            var updatedUser = await _userRepository.UpdateAsync(user, cancellationToken);
+            
             return _mapper.Map<UpdateUserResponse>(updatedUser);
         }
 

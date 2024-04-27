@@ -1,6 +1,6 @@
-namespace LeMail.Application.Dto_s.Contact.Requests;
+    namespace LeMail.Application.Dto_s.Contact.Requests;
 
-public class CreateContactRequest : BaseContactDto
-{
-    
-}
+    public class CreateContactRequest : BaseContactDto
+    {
+        
+    }

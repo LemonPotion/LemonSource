@@ -1,5 +1,7 @@
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Domain.Entities;
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LeMail.Persistence.Repositories;
@@ -15,6 +17,9 @@ public class MessageRepository : IMessageRepository
     
     public async Task<Message> CreateAsync(Message entity, CancellationToken cancellationToken)
     {
+        var validator = new MessageValidator(nameof(Message));
+        validator.ValidateWithExceptions(entity);
+
         _dbContext.Add(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;
@@ -27,11 +32,11 @@ public class MessageRepository : IMessageRepository
             return message;
         throw new ArgumentNullException(nameof(message));
     }
-
-    //TODO: сделать рабочим
+    
     public async Task<Message> UpdateAsync(Message entity, CancellationToken cancellationToken)
     {
-        _dbContext.Messages.Update(entity);
+        entity.Update(entity.Subject, entity.Body);
+        _dbContext.Update(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;
     }

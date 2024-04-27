@@ -1,5 +1,8 @@
+using FluentValidation;
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Domain.Entities;
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LeMail.Persistence.Repositories;
@@ -13,6 +16,9 @@ public class UserRepository : IUserRepository
     }
     public async Task<User> CreateAsync(User entity, CancellationToken cancellationToken)
     {
+        var validator = new UserValidator(nameof(User));
+        validator.ValidateWithExceptions(entity);
+        
         _dbContext.Add(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;
@@ -25,10 +31,12 @@ public class UserRepository : IUserRepository
         throw new ArgumentNullException(nameof(user));
     }
 
-    //TODO: сделать рабочим
+
     public async Task<User> UpdateAsync(User entity, CancellationToken cancellationToken)
     {
-        _dbContext.Users.Update(entity); // Помечаем сущность как измененную
+        entity.Update(entity.Email, entity.FullName);
+        
+        _dbContext.Update(entity); // Помечаем сущность как измененную
         await _dbContext.SaveChangesAsync(cancellationToken); // Сохраняем изменения в базе данных
         return entity;
     }

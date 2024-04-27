@@ -1,5 +1,6 @@
 namespace LeMail.Domain.Validations.Primitives;
 
+//TODO: сделать валидацию enum
 public enum Role
 {
     None = 0,

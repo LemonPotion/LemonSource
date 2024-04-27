@@ -22,6 +22,7 @@ public class Message : BaseEntity
     {
         Subject = subject;
         Body = body;
+        DateSent = DateTime.Now;
         var validator = new MessageValidator(nameof(Message));
         validator.ValidateWithExceptions(this);
     }

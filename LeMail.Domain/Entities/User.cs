@@ -19,13 +19,14 @@ public class User : BaseEntity
     public User()
     {
         var validator = new UserValidator(nameof(User));
-
         validator.ValidateWithExceptions(this);
+        
     }
+    
 
-    public void Update(string email, string firstName, string lastName, string middleName)
+    public void Update(string email, FullName fullName)
     {
-        FullName.Update(firstName, lastName, middleName);
+        FullName.Update(fullName);
         Email = email;
         var validator = new UserValidator(nameof(User));
 

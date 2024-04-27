@@ -17,6 +17,7 @@ public class Contact : BaseEntity
         var validator = new ContactValidator(nameof(Contact));
         validator.ValidateWithExceptions(this);
     }
+    
     public void Update(string contactName, string contactMail, string description)
     {
         ContactName = contactName;

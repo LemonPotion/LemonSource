@@ -1,6 +1,7 @@
 using System.Text.Json;
 namespace LeMail.Domain.ValueObjects;
 
+//TODO: сделать валидацию для ValueObject
 public class BaseValueObject
 {
     public override bool Equals(object? obj)

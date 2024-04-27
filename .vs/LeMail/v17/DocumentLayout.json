@@ -7,79 +7,79 @@
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\mapping\\messagemappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|solutionrelative:lemail.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\dto\u0027s\\user\\fullnamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\dto\u0027s\\user\\fullnamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\dto\u0027s\\user\\fullnamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\interfaces\\repository\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\interfaces\\repository\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\interfaces\\repository\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{626A851B-86FD-42A4-87B2-7A1703F96310}|LeMail.Persistence\\LeMail.Persistence.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{626A851B-86FD-42A4-87B2-7A1703F96310}|LeMail.Persistence\\LeMail.Persistence.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{626A851B-86FD-42A4-87B2-7A1703F96310}|LeMail.Persistence\\LeMail.Persistence.csproj|solutionrelative:lemail.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\interfaces\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\interfaces\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\interfaces\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\dto\u0027s\\user\\baseuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\dto\u0027s\\user\\baseuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\dto\u0027s\\user\\baseuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.domain\\validations\\regexpatterns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.domain\\validations\\regexpatterns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|solutionrelative:lemail.domain\\validations\\regexpatterns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.domain\\validations\\validators\\common\\emailvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.domain\\validations\\validators\\common\\emailvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|solutionrelative:lemail.domain\\validations\\validators\\common\\emailvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.domain\\validations\\validators\\entities\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.domain\\validations\\validators\\entities\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|solutionrelative:lemail.domain\\validations\\validators\\entities\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|solutionrelative:lemail.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.domain\\validations\\validators\\common\\passwordhashvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.domain\\validations\\validators\\common\\passwordhashvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|solutionrelative:lemail.domain\\validations\\validators\\common\\passwordhashvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|solutionrelative:lemail.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\mapping\\usermappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\mapping\\usermappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\mapping\\usermappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.domain\\valueobjects\\fullname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.domain\\valueobjects\\fullname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CBCECA7-5EEA-45B8-81E0-F090CEA4F356}|LeMail.Domain\\LeMail.Domain.csproj|solutionrelative:lemail.domain\\valueobjects\\fullname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\dto\u0027s\\user\\responses\\createuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\dto\u0027s\\user\\responses\\createuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\dto\u0027s\\user\\responses\\createuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{7AAB4D39-7378-45F6-9402-86AA46601C9F}|LeMail.WebApi\\LeMail.WebApi.csproj|solutionrelative:lemail.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.application\\interfaces\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.application\\interfaces\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3}|LeMail.Application\\LeMail.Application.csproj|solutionrelative:lemail.application\\interfaces\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{626A851B-86FD-42A4-87B2-7A1703F96310}|LeMail.Persistence\\LeMail.Persistence.csproj|c:\\users\\lemon\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lemail\\lemail.persistence\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{626A851B-86FD-42A4-87B2-7A1703F96310}|LeMail.Persistence\\LeMail.Persistence.csproj|C:\\Users\\Lemon\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\LeMail\\lemail.persistence\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{626A851B-86FD-42A4-87B2-7A1703F96310}|LeMail.Persistence\\LeMail.Persistence.csproj|solutionrelative:lemail.persistence\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -103,8 +103,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T18:53:09.326Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -129,8 +128,7 @@
               "RelativeToolTip": "LeMail.Application\\Dto\u0027s\\User\\FullNameDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:46:30.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:46:30.512Z"
             },
             {
               "$type": "Document",
@@ -142,8 +140,7 @@
               "RelativeToolTip": "LeMail.Application\\Dto\u0027s\\User\\BaseUserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAQAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:45:20.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:45:20.008Z"
             },
             {
               "$type": "Document",
@@ -155,8 +152,7 @@
               "RelativeToolTip": "LeMail.Application\\Dto\u0027s\\User\\Responses\\CreateUserResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:45:12.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:45:12.84Z"
             },
             {
               "$type": "Document",
@@ -168,8 +164,7 @@
               "RelativeToolTip": "LeMail.Domain\\Entities\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBQAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:44:47.785Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:44:47.785Z"
             },
             {
               "$type": "Document",
@@ -181,8 +176,7 @@
               "RelativeToolTip": "LeMail.Application\\Interfaces\\Repository\\IBaseRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:10:29.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:10:29.297Z"
             },
             {
               "$type": "Document",
@@ -194,8 +188,7 @@
               "RelativeToolTip": "LeMail.Application\\Interfaces\\Repository\\IUserRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:10:24.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:10:24.806Z"
             },
             {
               "$type": "Document",
@@ -207,8 +200,7 @@
               "RelativeToolTip": "LeMail.Persistence\\Repositories\\UserRepository.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAowCUAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:03:31.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:03:31.113Z"
             },
             {
               "$type": "Document",
@@ -220,8 +212,7 @@
               "RelativeToolTip": "LeMail.Application\\Interfaces\\Services\\IUserService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAsAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T18:59:15.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T18:59:15.177Z"
             },
             {
               "$type": "Document",
@@ -233,8 +224,7 @@
               "RelativeToolTip": "LeMail.Domain\\Validations\\Validators\\Common\\EmailValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:55:16.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:55:16.225Z"
             },
             {
               "$type": "Document",
@@ -246,8 +236,7 @@
               "RelativeToolTip": "LeMail.Domain\\Validations\\RegexPatterns.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:56:18.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:56:18.577Z"
             },
             {
               "$type": "Document",
@@ -259,8 +248,7 @@
               "RelativeToolTip": "LeMail.Domain\\ValueObjects\\FullName.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:46:48.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:46:48.039Z"
             },
             {
               "$type": "Document",
@@ -272,8 +260,7 @@
               "RelativeToolTip": "LeMail.Domain\\Validations\\Validators\\Entities\\UserValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:58:41.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:58:41.675Z"
             },
             {
               "$type": "Document",
@@ -285,8 +272,7 @@
               "RelativeToolTip": "LeMail.Application\\Mapping\\UserMappingProfile.cs",
               "ViewState": "AQIAACkAAAAAAAAAAAAYwEsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:47:06.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:47:06.066Z"
             },
             {
               "$type": "Document",
@@ -298,8 +284,7 @@
               "RelativeToolTip": "LeMail.Domain\\Validations\\Validators\\Common\\PasswordHashValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:55:52.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:55:52.725Z"
             },
             {
               "$type": "Document",
@@ -311,8 +296,7 @@
               "RelativeToolTip": "LeMail.WebApi\\Program.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAuwC8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T18:40:14.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T18:40:14.256Z"
             },
             {
               "$type": "Document",
@@ -324,8 +308,7 @@
               "RelativeToolTip": "LeMail.WebApi\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-22T19:27:19.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:27:19.203Z"
             },
             {
               "$type": "Document",
@@ -337,8 +320,7 @@
               "RelativeToolTip": "LeMail.Application\\Services\\UserService.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAowDQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T18:53:25.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T18:53:25.624Z"
             },
             {
               "$type": "Document",
@@ -350,8 +332,7 @@
               "RelativeToolTip": "LeMail.Persistence\\DatabaseContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T18:47:24.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T18:47:24.059Z"
             }
           ]
         }
