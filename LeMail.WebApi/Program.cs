@@ -11,12 +11,14 @@ namespace LeMail.WebApi
 {
     public class Program
     {
+        //TODO: сделать шифрование данных
+        
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -32,8 +34,8 @@ namespace LeMail.WebApi
 
             builder.Services.AddScoped<IContactRepository,ContactRepository>();
             builder.Services.AddScoped<IContactService, ContactService>();
-
-            //TODO: обьединить в один метод
+            builder.Services.AddScoped<IEmailService, EmailService>();
+            
             // Настройка AutoMapper
             builder.Services.AddAutoMapper(typeof(UserMappingProfile));
             builder.Services.AddAutoMapper(typeof(MessageMappingProfile));

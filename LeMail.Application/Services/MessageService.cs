@@ -12,7 +12,8 @@ public class MessageService : IMessageService
     private readonly IMessageRepository _messageRepository;
     private readonly IMapper _mapper;
 
-    public MessageService(IMessageRepository messageRepository, IMapper mapper)
+
+    public MessageService(IMessageRepository messageRepository, IMapper mapper, IEmailService emailService)
     {
         _messageRepository = messageRepository;
         _mapper = mapper;
@@ -23,7 +24,6 @@ public class MessageService : IMessageService
         var message = _mapper.Map<Message>(request);
         var createdMessage = await _messageRepository.CreateAsync(message,cancellationToken);
         var response = _mapper.Map<CreateMessageResponse>(createdMessage);
-        
         return response;
     }
 

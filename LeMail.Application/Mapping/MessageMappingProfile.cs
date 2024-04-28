@@ -16,7 +16,8 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Subject, opt => opt.MapFrom(src => src.Subject))
                 .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
-                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent));
+                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent))
+                .ForMember(dest => dest.To, opt => opt.MapFrom(src => src.To));
 
             // CreateMap для маппинга Delete Message Request класса
             CreateMap<DeleteMessageRequest, Message>()

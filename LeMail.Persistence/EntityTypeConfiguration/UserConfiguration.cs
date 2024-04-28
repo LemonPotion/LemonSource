@@ -8,23 +8,25 @@ namespace LeMail.Persistence.EntityTypeConfiguration
     {
         public void Configure(EntityTypeBuilder<User> builder) 
         {
-            builder.HasKey(user => user.Id);
-            builder.HasIndex(user => user.Id).IsUnique();
-            builder.Property(user => user.Email).HasMaxLength(250).IsRequired();
-            builder.Property(user => user.Salt).HasMaxLength(250).IsRequired();
-            builder.Property(user => user.PasswordHash).HasMaxLength(250).IsRequired();
-            builder.OwnsOne(user => user.FullName);
+            builder.HasKey(user => user.Id).HasName("userId");
+            builder.Property(user => user.Email).HasMaxLength(250).IsRequired().HasColumnName("email");
+            builder.Property(user => user.Salt).HasMaxLength(250).IsRequired().HasColumnName("salt");
+            builder.Property(user => user.PasswordHash).HasMaxLength(250).IsRequired().HasColumnName("passwordHash");
+            builder.OwnsOne(user => user.FullName)
+                .Property(name=> name.FirstName).HasColumnName("firstName");
+            builder.OwnsOne(user => user.FullName)
+                .Property(name=> name.LastName).HasColumnName("lastName");
+            builder.OwnsOne(user => user.FullName)
+                .Property(name=> name.MiddleName).HasColumnName("middleName");
             
-            // Указываем отношение один ко многим между User и Message
+            
             builder.HasMany(user => user.Messages)
-                .WithOne(message => message.User) // Указываем навигационное свойство в Message
-                .HasForeignKey(message => message.UserId) // Указываем внешний ключ
-                .OnDelete(DeleteBehavior.Cascade); 
+                .WithOne(message => message.User)
+                .HasForeignKey(message => message.UserId);
                 
             builder.HasMany(user => user.Contacts)
                 .WithOne(contact => contact.User)
-                .HasForeignKey(contact => contact.UserId)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .HasForeignKey(contact => contact.UserId); 
         }
     }
 }

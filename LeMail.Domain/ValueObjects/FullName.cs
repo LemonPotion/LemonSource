@@ -1,3 +1,6 @@
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Common;
+
 namespace LeMail.Domain.ValueObjects;
 
 public class FullName: BaseValueObject
@@ -6,11 +9,13 @@ public class FullName: BaseValueObject
     public string LastName { get; set; }
     public string? MiddleName { get; set; } = null;
 
-    public FullName(string firstName, string lastName, string? middleName)
+    public FullName(string firstName, string lastName, string middleName)
     {
         FirstName = firstName;
         LastName = lastName;
         MiddleName = middleName;
+        var validator = new FullNameValidator(nameof(FullName));
+        validator.ValidateWithExceptions(this);
     }
 
     public void Update(FullName fullName)

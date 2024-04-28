@@ -12,7 +12,7 @@ public class MessageRepository : IMessageRepository
 
     public MessageRepository(DatabaseContext dbContext)
     {
-        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _dbContext = dbContext;
     }
     
     public async Task<Message> CreateAsync(Message entity, CancellationToken cancellationToken)

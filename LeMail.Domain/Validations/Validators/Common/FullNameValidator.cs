@@ -11,10 +11,13 @@ public class FullNameValidator: AbstractValidator<FullName>
             .NotNull().WithMessage(string.Format(ExceptionMessages.NullError, paramName))
             .NotEmpty().WithMessage(string.Format(ExceptionMessages.EmptyError, paramName))
             .Matches(RegexPatterns.FullName).WithMessage(string.Format(ExceptionMessages.InvalidNameFormat, paramName));
+        
         RuleFor(param => param.MiddleName)
             .NotNull().WithMessage(string.Format(ExceptionMessages.NullError, paramName))
             .NotEmpty().WithMessage(string.Format(ExceptionMessages.EmptyError, paramName))
-            .Matches(RegexPatterns.FullName).WithMessage(string.Format(ExceptionMessages.InvalidNameFormat, paramName));
+            .Matches(RegexPatterns.FullName).WithMessage(string.Format(ExceptionMessages.InvalidNameFormat, paramName))
+            .When(param=> param is not null);
+        
         RuleFor(param => param.LastName)
             .NotNull().WithMessage(string.Format(ExceptionMessages.NullError, paramName))
             .NotEmpty().WithMessage(string.Format(ExceptionMessages.EmptyError, paramName))

@@ -38,4 +38,7 @@ public abstract class ExceptionMessages
     /// Сообщение о ошибке перечисления
     /// </summary>
     public const string DefaultEnum = "Enum {0} can't be default";
+    
+    public const string UserAlreadyExists = "{0} User already exists";
+
 }

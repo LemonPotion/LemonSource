@@ -9,6 +9,7 @@ namespace LeMail.WebApi.Controllers;
 public class ContactController : ControllerBase
 {
     private readonly IContactService _contactService;
+    
 
     public ContactController(IContactService contactService)
     {

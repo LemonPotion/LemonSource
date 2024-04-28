@@ -8,16 +8,18 @@ namespace LeMail.WebApi.Controllers;
 public class MessageController : ControllerBase
 {
     private readonly IMessageService _messageService;
-
-    public MessageController( IMessageService messageService)
+    private readonly IEmailService _emailService;
+    public MessageController( IMessageService messageService, IEmailService emailService)
     {
         _messageService = messageService;
+        _emailService = emailService;
     }
     
     [HttpPost] // done
     public async Task<IActionResult> CreateMessage(CreateMessageRequest request, CancellationToken cancellationToken)
     {
         var response = await _messageService.CreateMessageAsync(request, cancellationToken);
+        await _emailService.SendEmailAsync(request, cancellationToken);
         return Ok(response);
     }
 

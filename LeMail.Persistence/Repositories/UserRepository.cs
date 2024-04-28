@@ -14,11 +14,17 @@ public class UserRepository : IUserRepository
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
+    
     public async Task<User> CreateAsync(User entity, CancellationToken cancellationToken)
     {
         var validator = new UserValidator(nameof(User));
         validator.ValidateWithExceptions(entity);
         
+        var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == entity.Email, cancellationToken);
+        if (existingUser is not null)
+        {
+            throw new Exception(string.Format(ExceptionMessages.UserAlreadyExists, entity.Email));
+        }
         _dbContext.Add(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity;

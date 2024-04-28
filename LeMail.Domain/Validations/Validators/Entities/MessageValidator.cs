@@ -11,5 +11,6 @@ public class MessageValidator : AbstractValidator<Message>
         RuleFor(param => param.User).SetValidator(new UserObjValidator(nameof(Message.User)));
         RuleFor(param => param.Body).SetValidator(new BodyValidator(nameof(Message.Body)));
         RuleFor(param => param.Subject).SetValidator(new SubjectValidator(nameof(Message.Subject)));
+        RuleFor(param => param.To).SetValidator(new EmailValidator(nameof(Message.To)));
     }
 }
