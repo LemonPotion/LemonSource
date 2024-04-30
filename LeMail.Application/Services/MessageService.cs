@@ -59,4 +59,12 @@ public class MessageService : IMessageService
         
         return response;
     }
+
+    public async Task<List<GetMessageResponse>> GetAllListByUserIdAsync(Guid id, CancellationToken cancellationToken)
+    {
+        var messageEntities = await _messageRepository.GetAllListByUserIdAsync(id,cancellationToken);
+        var response = _mapper.Map<List<GetMessageResponse>>(messageEntities);
+        
+        return response;
+    }
 }

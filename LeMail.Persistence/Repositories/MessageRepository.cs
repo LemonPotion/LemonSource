@@ -53,4 +53,11 @@ public class MessageRepository : IMessageRepository
     {
         return await _dbContext.Set<Message>().ToListAsync(cancellationToken);
     }
+
+    public async Task<List<Message>> GetAllListByUserIdAsync(Guid id, CancellationToken cancellationToken)
+    {
+        return await _dbContext.Messages
+            .Where(c => c.UserId == id)
+            .ToListAsync(cancellationToken);
+    }
 }

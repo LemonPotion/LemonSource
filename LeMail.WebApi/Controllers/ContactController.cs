@@ -53,9 +53,16 @@ public class ContactController : ControllerBase
     }
 
     [HttpGet]//done
-    public async Task<IActionResult> GetAllUsers(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllContacts(CancellationToken cancellationToken)
     {
         var response = await _contactService.GetAllContactsAsync(cancellationToken);
+        return Ok(response);
+    }
+
+    [HttpGet("AllBy{id}")]
+    public async Task<IActionResult> GetAllContactsByUserId(Guid id, CancellationToken cancellationToken)
+    {
+        var response = await _contactService.GetAllContactsByUserId(id, cancellationToken);
         return Ok(response);
     }
 }

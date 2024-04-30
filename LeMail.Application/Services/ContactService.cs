@@ -57,4 +57,12 @@ public class ContactService : IContactService
 
         return response;
     }
+
+    public async  Task<List<GetContactResponse>> GetAllContactsByUserId(Guid id, CancellationToken cancellationToken)
+    {
+        var contacts = await _contactRepository.GetAllListByUserIdAsync(id, cancellationToken);
+        var response = _mapper.Map<List<GetContactResponse>>(contacts);
+
+        return response;
+    }
 }

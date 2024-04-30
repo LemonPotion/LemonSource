@@ -57,4 +57,11 @@ public class MessageController : ControllerBase
         var response = await _messageService.GetAllMessagesAsync(cancellationToken);
         return Ok(response);
     }
+    
+    [HttpGet("AllBy{id}")]
+    public async Task<IActionResult> GetAllMessagesByUserId(Guid id, CancellationToken cancellationToken)
+    {
+        var response = await _messageService.GetAllListByUserIdAsync(id, cancellationToken);
+        return Ok(response);
+    }
 }

@@ -51,6 +51,15 @@ public class ContactRepository : IContactRepository
 
     public async Task<List<Contact>> GetAllListAsync(CancellationToken cancellationToken)
     {
-        return await _dbContext.Set<Contact>().ToListAsync(cancellationToken);
+        return await _dbContext
+            .Set<Contact>()
+            .ToListAsync(cancellationToken);
+    }
+
+    public async Task<List<Contact>> GetAllListByUserIdAsync(Guid id,CancellationToken cancellationToken)
+    {
+        return await _dbContext.Contacts
+            .Where(c => c.UserId == id)
+            .ToListAsync(cancellationToken);
     }
 }
