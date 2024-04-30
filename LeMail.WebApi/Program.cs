@@ -11,8 +11,6 @@ namespace LeMail.WebApi
 {
     public class Program
     {
-        //TODO: сделать шифрование данных
-        
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,9 @@
 using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
-
+/// <summary>
+/// IdValidator
+/// </summary>
 public class IdValidator : AbstractValidator<Guid>
 {
     public IdValidator(string paramName)

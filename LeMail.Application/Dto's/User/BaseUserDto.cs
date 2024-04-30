@@ -6,7 +6,6 @@ public class BaseUserDto
 {
     public Role Role { get; init; }
     public string Email { get; init; }
-    public string Salt { get; init; }
-    public string PasswordHash { get; init; }
+    public string Password { get; init; }
     public FullNameDto FullName { get; init; }
 }

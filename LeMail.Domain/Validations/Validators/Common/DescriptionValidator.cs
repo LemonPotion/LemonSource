@@ -1,7 +1,9 @@
 using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
-
+/// <summary>
+/// Description validator
+/// </summary>
 public class DescriptionValidator: AbstractValidator<string>
 {
     public DescriptionValidator(string paramName)

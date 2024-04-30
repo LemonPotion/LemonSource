@@ -15,8 +15,7 @@ namespace LeMail.Application.Mapping
             CreateMap<CreateUserRequest, User>()
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Salt, opt => opt.MapFrom(src => src.Salt))
-                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
 
             // CreateMap для маппинга Delete User Request класса
@@ -32,8 +31,7 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Salt, opt => opt.MapFrom(src => src.Salt))
-                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
 
             // CreateMap для маппинга User класса на Create User Response класс
@@ -41,8 +39,7 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Salt, opt => opt.MapFrom(src => src.Salt))
-                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
 
             // CreateMap для маппинга User класса на Delete User Response класс
@@ -54,8 +51,8 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Salt, opt => opt.MapFrom(src => src.Salt))
-                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
             
             CreateMap<FullNameDto, FullName>();
@@ -67,8 +64,7 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Salt, opt => opt.MapFrom(src => src.Salt))
-                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
         }
     }

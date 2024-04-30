@@ -1,7 +1,9 @@
 using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
-
+/// <summary>
+/// Body text validator
+/// </summary>
 public class BodyValidator : AbstractValidator<string>
 {
     public BodyValidator(string paramName)

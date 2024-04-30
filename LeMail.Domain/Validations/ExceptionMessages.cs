@@ -1,6 +1,7 @@
 namespace LeMail.Domain.Validations;
-
-//TODO: заменить на делегаты
+/// <summary>
+/// Exception messages 
+/// </summary>
 public abstract class ExceptionMessages
 {
     /// <summary>
@@ -38,7 +39,9 @@ public abstract class ExceptionMessages
     /// Сообщение о ошибке перечисления
     /// </summary>
     public const string DefaultEnum = "Enum {0} can't be default";
-    
+    /// <summary>
+    /// Сообщение о уже существубщем пользователе
+    /// </summary>
     public const string UserAlreadyExists = "{0} User already exists";
 
 }

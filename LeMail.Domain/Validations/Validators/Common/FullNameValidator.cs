@@ -3,6 +3,9 @@ using LeMail.Domain.ValueObjects;
 
 namespace LeMail.Domain.Validations.Validators.Common;
 
+/// <summary>
+/// Fullname class validator
+/// </summary>
 public class FullNameValidator: AbstractValidator<FullName>
 {
     public FullNameValidator(string paramName)

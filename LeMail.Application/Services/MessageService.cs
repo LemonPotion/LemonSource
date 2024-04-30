@@ -4,6 +4,8 @@ using LeMail.Application.Dto_s.Message.Responses;
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Application.Interfaces.Services;
 using LeMail.Domain.Entities;
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
 
 namespace LeMail.Application.Services;
 
@@ -22,6 +24,10 @@ public class MessageService : IMessageService
     public async Task<CreateMessageResponse> CreateMessageAsync(CreateMessageRequest request, CancellationToken cancellationToken)
     {
         var message = _mapper.Map<Message>(request);
+        
+        var validator = new MessageValidator(nameof(Message));
+        validator.ValidateWithExceptions(message);
+        
         var createdMessage = await _messageRepository.CreateAsync(message,cancellationToken);
         var response = _mapper.Map<CreateMessageResponse>(createdMessage);
         return response;

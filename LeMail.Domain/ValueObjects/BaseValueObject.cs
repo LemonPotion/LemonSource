@@ -1,6 +1,8 @@
 using System.Text.Json;
 namespace LeMail.Domain.ValueObjects;
-
+/// <summary>
+/// Base value object 
+/// </summary>
 public class BaseValueObject
 {
     public override bool Equals(object? obj)

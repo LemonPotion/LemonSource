@@ -4,10 +4,16 @@ using LeMail.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LeMail.WebApi.Controllers;
+/// <summary>
+/// Contact api controller
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class ContactController : ControllerBase
 {
+    /// <summary>
+    /// Contact service
+    /// </summary>
     private readonly IContactService _contactService;
     
 
@@ -15,15 +21,26 @@ public class ContactController : ControllerBase
     {
         _contactService = contactService;
     }
-    
-    [HttpPost] // done
+    /// <summary>
+    /// Create contact query
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpPost] 
     public async Task<IActionResult> CreateContact(CreateContactRequest request, CancellationToken cancellationToken)
     {
         var response = await _contactService.CreateAsync(request, cancellationToken);
         return Ok(response);
     }
 
-    [HttpGet("{id}")] // done
+    /// <summary>
+    /// get Contact by id query
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpGet("{id}")] 
     public async Task<IActionResult> GetContactById(Guid id, CancellationToken cancellationToken)
     {
         var response = await _contactService.GetContactByIdAsync(id, cancellationToken);
@@ -31,8 +48,13 @@ public class ContactController : ControllerBase
             return NotFound();
         return Ok(response);
     }
-
-    [HttpPut] //done
+    /// <summary>
+    /// Update contact by id query
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpPut]
     public async Task<IActionResult> UpdateContact(UpdateContactRequest request, CancellationToken cancellationToken)
     {
 
@@ -41,7 +63,12 @@ public class ContactController : ControllerBase
             return NotFound();
         return Ok(response);
     }
-
+    /// <summary>
+    /// Delete contact by id query
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]//done
     public async Task<IActionResult> DeleteContact(Guid id, CancellationToken cancellationToken)
     {
@@ -52,13 +79,23 @@ public class ContactController : ControllerBase
         return NoContent();
     }
 
-    [HttpGet]//done
+    /// <summary>
+    /// Get all contacts query
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpGet]
     public async Task<IActionResult> GetAllContacts(CancellationToken cancellationToken)
     {
         var response = await _contactService.GetAllContactsAsync(cancellationToken);
         return Ok(response);
     }
-
+    /// <summary>
+    /// Get all contacts by User id query
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpGet("AllBy{id}")]
     public async Task<IActionResult> GetAllContactsByUserId(Guid id, CancellationToken cancellationToken)
     {

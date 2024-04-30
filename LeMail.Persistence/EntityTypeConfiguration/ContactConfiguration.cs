@@ -3,7 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LeMail.Persistence.EntityTypeConfiguration;
-
+/// <summary>
+/// Contact entity configuration
+/// </summary>
 public class ContactConfiguration: IEntityTypeConfiguration<Contact>
 {
     public void Configure(EntityTypeBuilder<Contact> builder)

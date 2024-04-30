@@ -1,7 +1,9 @@
 using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
-
+/// <summary>
+/// Sent date validator
+/// </summary>
 public class DateSentValidator : AbstractValidator<DateTime>
 {
     public DateSentValidator(string paramName)

@@ -1,10 +1,20 @@
 namespace LeMail.Domain.Entities;
 
-
+/// <summary>
+/// Base entity class
+/// </summary>
 public abstract class BaseEntity
 {
+    /// <summary>
+    /// Id of entity
+    /// </summary>
     public Guid Id { get; set; }
 
+    /// <summary>
+    /// Equals override
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
     public override bool Equals(object? obj)
     {
         if (obj == null)
@@ -18,6 +28,10 @@ public abstract class BaseEntity
         return true;
     }
 
+    /// <summary>
+    /// GetHasCodeOverride
+    /// </summary>
+    /// <returns></returns>
     public override int GetHashCode()
     {
         return Id.GetHashCode();

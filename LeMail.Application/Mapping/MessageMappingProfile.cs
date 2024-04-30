@@ -16,7 +16,6 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Subject, opt => opt.MapFrom(src => src.Subject))
                 .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
-                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent))
                 .ForMember(dest => dest.To, opt => opt.MapFrom(src => src.To));
 
             // CreateMap для маппинга Delete Message Request класса
@@ -32,16 +31,14 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Subject, opt => opt.MapFrom(src => src.Subject))
-                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
-                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent));
+                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body));
 
             // CreateMap для маппинга Message класса на Create Message Response класс
             CreateMap<Message, CreateMessageResponse>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Subject, opt => opt.MapFrom(src => src.Subject))
-                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
-                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent));
+                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body));
 
             // CreateMap для маппинга Message класса на Delete Message Response класс
             CreateMap<Message, DeleteMessageResponse>()
@@ -52,16 +49,15 @@ namespace LeMail.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Subject, opt => opt.MapFrom(src => src.Subject))
-                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
-                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent));
+                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body));
+                
 
             // CreateMap для маппинга Message класса на Update Message Response класс
             CreateMap<Message, UpdateMessageResponse>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Subject, opt => opt.MapFrom(src => src.Subject))
-                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
-                .ForMember(dest => dest.DateSent, opt => opt.MapFrom(src => src.DateSent));
+                .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body));
             
             CreateMap<ExtendedUserDto, BaseMessageDto>()
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id)); // Маппинг Id на UserId

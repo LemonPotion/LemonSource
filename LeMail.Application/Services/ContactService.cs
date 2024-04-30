@@ -4,6 +4,8 @@ using LeMail.Application.Dto_s.Contact.Responses;
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Application.Interfaces.Services;
 using LeMail.Domain.Entities;
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
 
 namespace LeMail.Application.Services;
 
@@ -21,6 +23,10 @@ public class ContactService : IContactService
     public async Task<CreateContactResponse> CreateAsync(CreateContactRequest request, CancellationToken cancellationToken)
     {
         var contact = _mapper.Map<Contact>(request);
+        
+        var validator = new ContactValidator(nameof(Contact));
+        validator.ValidateWithExceptions(contact);
+        
         var createdContact= await _contactRepository.CreateAsync(contact, cancellationToken);
         var response = _mapper.Map<CreateContactResponse>(createdContact);
         

@@ -1,7 +1,9 @@
 using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
-
+/// <summary>
+/// SaltValidator
+/// </summary>
 public class SaltValidator : AbstractValidator<string>
 {
     public SaltValidator(string paramName)

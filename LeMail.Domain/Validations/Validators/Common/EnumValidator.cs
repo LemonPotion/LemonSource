@@ -2,6 +2,10 @@ using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
 
+/// <summary>
+/// Enum validator
+/// </summary>
+/// <typeparam name="TEnum"></typeparam>
 public class EnumValidator<TEnum> : AbstractValidator<TEnum> where TEnum : Enum
 {
     /// <summary>

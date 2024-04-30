@@ -4,6 +4,8 @@ using LeMail.Domain.Entities;
 using LeMail.Application.Dto_s.User.Requests;
 using LeMail.Application.Dto_s.User.Responses;
 using LeMail.Application.Interfaces.Services;
+using LeMail.Domain.Validations;
+using LeMail.Domain.Validations.Validators.Entities;
 
 namespace LeMail.Application.Services
 {
@@ -22,6 +24,10 @@ namespace LeMail.Application.Services
         public async Task<CreateUserResponse> CreateUserAsync(CreateUserRequest request, CancellationToken cancellationToken)
         {
             var userEntity = _mapper.Map<User>(request);
+            
+            var validator = new UserValidator(nameof(User));
+            validator.ValidateWithExceptions(userEntity);
+            
             var createdUser = await _userRepository.CreateAsync(userEntity, cancellationToken);
             return _mapper.Map<CreateUserResponse>(createdUser);
         }

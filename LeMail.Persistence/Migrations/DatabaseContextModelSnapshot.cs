@@ -106,20 +106,14 @@ namespace LeMail.Persistence.Migrations
                         .HasColumnType("nvarchar(250)")
                         .HasColumnName("email");
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
-                        .HasColumnName("passwordHash");
+                        .HasColumnName("password");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
-
-                    b.Property<string>("Salt")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)")
-                        .HasColumnName("salt");
 
                     b.HasKey("Id")
                         .HasName("userId");

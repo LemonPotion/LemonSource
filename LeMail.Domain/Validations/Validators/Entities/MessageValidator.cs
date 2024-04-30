@@ -3,7 +3,9 @@ using LeMail.Domain.Entities;
 using LeMail.Domain.Validations.Validators.Common;
 
 namespace LeMail.Domain.Validations.Validators.Entities;
-
+/// <summary>
+/// Message entity validator
+/// </summary>
 public class MessageValidator : AbstractValidator<Message>
 {
     public MessageValidator(string paramName)

@@ -1,7 +1,9 @@
 using FluentValidation;
 
 namespace LeMail.Domain.Validations.Validators.Common;
-
+/// <summary>
+/// PasswordHashValidator
+/// </summary>
 public class PasswordHashValidator : AbstractValidator<string>
 {
     public PasswordHashValidator(string paramName)
