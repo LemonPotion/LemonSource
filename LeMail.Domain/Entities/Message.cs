@@ -32,6 +32,8 @@ public class Message : BaseEntity
     /// Send date
     /// </summary>
     public DateTime DateSent { get; set; } = DateTime.Now;
+    
+    public ICollection<Attachment> Attachments { get; set; }
 
     // Добавьте конструктор без параметров
     public Message()

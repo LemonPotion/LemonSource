@@ -22,6 +22,39 @@ namespace LeMail.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("fileName");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("filePath");
+
+                    b.Property<string>("FileType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("fileType");
+
+                    b.Property<Guid>("MessageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id")
+                        .HasName("attachmentId");
+
+                    b.HasIndex("MessageId");
+
+                    b.ToTable("Attachments");
+                });
+
             modelBuilder.Entity("LeMail.Domain.Entities.Contact", b =>
                 {
                     b.Property<Guid>("Id")
@@ -121,6 +154,17 @@ namespace LeMail.Persistence.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
+                {
+                    b.HasOne("LeMail.Domain.Entities.Message", "Message")
+                        .WithMany("Attachments")
+                        .HasForeignKey("MessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Message");
+                });
+
             modelBuilder.Entity("LeMail.Domain.Entities.Contact", b =>
                 {
                     b.HasOne("LeMail.Domain.Entities.User", "User")
@@ -174,6 +218,11 @@ namespace LeMail.Persistence.Migrations
 
                     b.Navigation("FullName")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Message", b =>
+                {
+                    b.Navigation("Attachments");
                 });
 
             modelBuilder.Entity("LeMail.Domain.Entities.User", b =>

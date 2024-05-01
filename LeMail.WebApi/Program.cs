@@ -9,8 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LeMail.WebApi
 {
+    
     public class Program
     {
+        //TODO: сделать Application и  WebApi для Attachments
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

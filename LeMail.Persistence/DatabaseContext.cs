@@ -25,6 +25,10 @@ public class DatabaseContext : DbContext
     /// </summary>
     public DbSet<Message> Messages { get; set; }
     /// <summary>
+    /// Attachments entity DbSet
+    /// </summary>
+    public DbSet<Attachment> Attachments{ get; set; }
+    /// <summary>
     /// Applying configurations 
     /// </summary>
     /// <param name="modelBuilder"></param>
@@ -34,5 +38,6 @@ public class DatabaseContext : DbContext
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new ContactConfiguration());
         modelBuilder.ApplyConfiguration(new MessageConfiguration());
+        modelBuilder.ApplyConfiguration(new AttachmentConfiguration());
     }
 }
