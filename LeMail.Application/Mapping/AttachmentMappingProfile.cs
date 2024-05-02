@@ -2,7 +2,9 @@ using AutoMapper;
 using LeMail.Application.Dto_s.Attachment;
 using LeMail.Application.Dto_s.Attachment.Requests;
 using LeMail.Application.Dto_s.Attachment.Responses;
+using LeMail.Application.Mapping.Converters;
 using LeMail.Domain.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace LeMail.Application.Mapping
 {
@@ -10,6 +12,8 @@ namespace LeMail.Application.Mapping
     {
         public AttachmentMappingProfile()
         {
+            CreateMap<IFormFile, CreateAttachmentRequest>() .ConvertUsing<FormFileToCreateAttachmentRequestConverter>();
+            
             CreateMap<CreateAttachmentRequest, Attachment>()
                 .ForMember(dest => dest.FileName, opt => opt.MapFrom(src => src.FileName))
                 .ForMember(dest => dest.FilePath, opt => opt.MapFrom(src => src.FilePath))

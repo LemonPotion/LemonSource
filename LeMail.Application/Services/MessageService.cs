@@ -12,6 +12,7 @@ namespace LeMail.Application.Services;
 public class MessageService : IMessageService
 {
     private readonly IMessageRepository _messageRepository;
+    private readonly IEmailService _emailService;
     private readonly IMapper _mapper;
 
 
@@ -19,6 +20,7 @@ public class MessageService : IMessageService
     {
         _messageRepository = messageRepository;
         _mapper = mapper;
+        _emailService = emailService;
     }
     
     public async Task<CreateMessageResponse> CreateMessageAsync(CreateMessageRequest request, CancellationToken cancellationToken)
@@ -30,6 +32,9 @@ public class MessageService : IMessageService
         
         var createdMessage = await _messageRepository.CreateAsync(message,cancellationToken);
         var response = _mapper.Map<CreateMessageResponse>(createdMessage);
+        
+        await _emailService.SendEmailAsync(request, cancellationToken);
+        
         return response;
     }
 

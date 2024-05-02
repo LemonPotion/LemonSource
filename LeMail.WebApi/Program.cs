@@ -38,6 +38,8 @@ namespace LeMail.WebApi
 
             builder.Services.AddScoped<IAttachmentService, AttachmentService>();
             builder.Services.AddScoped<IAttachmentRepository, AttachmentRepository>();
+
+            builder.Services.AddScoped<IFileService, FileService>();
             
             // Настройка AutoMapper
             builder.Services.AddAutoMapper(typeof(UserMappingProfile));

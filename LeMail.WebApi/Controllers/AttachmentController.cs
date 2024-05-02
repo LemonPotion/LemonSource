@@ -1,6 +1,8 @@
 using LeMail.Application.Dto_s.Attachment.Requests;
 using LeMail.Application.Interfaces.Services;
+using LeMail.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace LeMail.WebApi.Controllers;
 
@@ -14,19 +16,33 @@ public class AttachmentController : ControllerBase
     {
         _attachmentService = attachmentService;
     }
+    
     [HttpPost]
-    public async Task<IActionResult> CreateAttachment(CreateAttachmentRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateAttachment(Guid messageId,IFormFile attachment, CancellationToken cancellationToken)
     {
-        var response = await _attachmentService.CreateAttachmentAsync(request, cancellationToken);
+        if (attachment is null|| attachment.Length==0) 
+            return BadRequest(string.Format(ExceptionMessages.NullError, nameof(attachment)));
+
+        var response = await _attachmentService.CreateAttachmentAsync(messageId,attachment, cancellationToken);
         return Ok(response);
     }
-
-    /// <summary>
-    /// get user by id query
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    
+    [HttpGet("File{id}")]
+    public async Task<IActionResult> GetAttachmentFileById(Guid id, CancellationToken cancellationToken)
+    {
+        var response = await _attachmentService.GetAttachmentByIdAsync(id, cancellationToken);
+        if (response == null)
+            return NotFound();
+        
+        var contentTypeProvider = new FileExtensionContentTypeProvider();
+        if (!contentTypeProvider.TryGetContentType(response.FilePath, out var contentType))
+        {
+            contentType = "application/octet-stream";
+        }
+        
+        return PhysicalFile(response.FilePath, contentType);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAttachmentById(Guid id, CancellationToken cancellationToken)
     {
@@ -35,42 +51,19 @@ public class AttachmentController : ControllerBase
             return NotFound();
         return Ok(response);
     }
-    /// <summary>
-    /// update user by id query
-    /// </summary>
-    /// <param name="request"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    [HttpPut]
-    public async Task<IActionResult> UpdateUser(UpdateAttachmentRequest request, CancellationToken cancellationToken)
-    {
+    
 
-        var response = await _attachmentService.UpdateAttachmentAsync(request, cancellationToken);
-        if (response == null)
-            return NotFound();
-        return Ok(response);
-    }
-    /// <summary>
-    /// Delete User by id query
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    [HttpDelete("{id}")]//done
-    public async Task<IActionResult> DeleteUser(Guid id, CancellationToken cancellationToken)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAttachment(Guid id, CancellationToken cancellationToken)
     {
         var result = await _attachmentService.DeleteAttachmentByIdAsync(id, cancellationToken);
         if (!result)
             return NotFound();
         return NoContent();
     }
-    /// <summary>
-    /// Get all users query
-    /// </summary>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+
     [HttpGet]
-    public async Task<IActionResult> GetAllUsers(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllAttachments(CancellationToken cancellationToken)
     {
         var response = await _attachmentService.GetAllAttachmentsAsync(cancellationToken);
         return Ok(response);

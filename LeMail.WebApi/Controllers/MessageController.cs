@@ -14,14 +14,11 @@ public class MessageController : ControllerBase
     /// Message Service
     /// </summary>
     private readonly IMessageService _messageService;
-    /// <summary>
-    /// Email send service
-    /// </summary>
-    private readonly IEmailService _emailService;
+
     public MessageController( IMessageService messageService, IEmailService emailService)
     {
         _messageService = messageService;
-        _emailService = emailService;
+
     }
     
     /// <summary>
@@ -34,7 +31,6 @@ public class MessageController : ControllerBase
     public async Task<IActionResult> CreateMessage(CreateMessageRequest request, CancellationToken cancellationToken)
     {
         var response = await _messageService.CreateMessageAsync(request, cancellationToken);
-        await _emailService.SendEmailAsync(request, cancellationToken);
         return Ok(response);
     }
     /// <summary>

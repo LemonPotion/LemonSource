@@ -1,54 +1,68 @@
 using AutoMapper;
 using LeMail.Application.Dto_s.Attachment.Requests;
 using LeMail.Application.Dto_s.Attachment.Responses;
+using LeMail.Application.Dto_s.Contact.Responses;
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Application.Interfaces.Services;
 using LeMail.Domain.Entities;
 using LeMail.Domain.Validations;
 using LeMail.Domain.Validations.Validators.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace LeMail.Application.Services
 {
     public class AttachmentService : IAttachmentService
     {
         private readonly IAttachmentRepository _attachmentRepository;
+        private readonly IFileService _fileService;
         private readonly IMapper _mapper;
 
-        public AttachmentService(IAttachmentRepository attachmentRepository, IMapper mapper)
+        public AttachmentService(IAttachmentRepository attachmentRepository, IMapper mapper, IFileService fileService)
         {
             _attachmentRepository = attachmentRepository;
             _mapper = mapper;
+            _fileService = fileService;
         }
 
-        public async Task<CreateAttachmentResponse> CreateAttachmentAsync(CreateAttachmentRequest request, CancellationToken cancellationToken)
+        public async Task<CreateAttachmentResponse> CreateAttachmentAsync(Guid messageId,IFormFile attachment, CancellationToken cancellationToken)
         {
-            var attachmentEntity = _mapper.Map<Attachment>(request);
-
+            var createAttachmentRequest = _mapper.Map<CreateAttachmentRequest>(attachment);
+            createAttachmentRequest.MessageId = messageId;
+            
+            var attachmentEntity = _mapper.Map<Attachment>(createAttachmentRequest);
+            
             var validator = new AttachmentValidator(nameof(Attachment));
             validator.ValidateWithExceptions(attachmentEntity);
-
+            
+            await _fileService.CreateFileAsync(attachment, attachmentEntity.FilePath);
+            
             var createdAttachment = await _attachmentRepository.CreateAsync(attachmentEntity, cancellationToken);
+            
+            
             return _mapper.Map<CreateAttachmentResponse>(createdAttachment);
         }
 
         public async Task<GetAttachmentResponse> GetAttachmentByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            var attachmentEntity = await _attachmentRepository.GetByIdAsync(id, cancellationToken);
-            return _mapper.Map<GetAttachmentResponse>(attachmentEntity);
+            
+            var attachment = await _attachmentRepository.GetByIdAsync(id, cancellationToken);
+            
+            var response = _mapper.Map<GetAttachmentResponse>(attachment);
+            
+            return response;
         }
 
-        public async Task<UpdateAttachmentResponse> UpdateAttachmentAsync(UpdateAttachmentRequest request, CancellationToken cancellationToken)
-        {
-            var attachmentEntity = await _attachmentRepository.GetByIdAsync(request.Id, cancellationToken);
-            _mapper.Map(request, attachmentEntity);
-
-            var updatedAttachment = await _attachmentRepository.UpdateAsync(attachmentEntity, cancellationToken);
-            return _mapper.Map<UpdateAttachmentResponse>(updatedAttachment);
-        }
         
         public async Task<bool> DeleteAttachmentByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            return await _attachmentRepository.DeleteByIdAsync(id, cancellationToken);
+            var entity = await _attachmentRepository.GetByIdAsync(id, cancellationToken);
+            
+            var result= await _attachmentRepository.DeleteByIdAsync(id, cancellationToken);
+            
+            var deleteResult =await _fileService.DeleteFileAsync(entity.FilePath);
+            
+            if (!deleteResult) return false;
+            return result;
         }
 
         public async Task<List<GetAttachmentResponse>> GetAllAttachmentsAsync(CancellationToken cancellationToken)
