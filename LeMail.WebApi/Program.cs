@@ -12,7 +12,6 @@ namespace LeMail.WebApi
     
     public class Program
     {
-        //TODO: сделать Application и  WebApi для Attachments
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -34,12 +33,17 @@ namespace LeMail.WebApi
 
             builder.Services.AddScoped<IContactRepository,ContactRepository>();
             builder.Services.AddScoped<IContactService, ContactService>();
+            
             builder.Services.AddScoped<IEmailService, EmailService>();
+
+            builder.Services.AddScoped<IAttachmentService, AttachmentService>();
+            builder.Services.AddScoped<IAttachmentRepository, AttachmentRepository>();
             
             // Настройка AutoMapper
             builder.Services.AddAutoMapper(typeof(UserMappingProfile));
             builder.Services.AddAutoMapper(typeof(MessageMappingProfile));
             builder.Services.AddAutoMapper(typeof(ContactMappingProfile));
+            builder.Services.AddAutoMapper(typeof(AttachmentMappingProfile));
 
             var app = builder.Build();
 

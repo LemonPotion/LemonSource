@@ -49,9 +49,7 @@ public class UserRepository : IUserRepository
     public async Task<User> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         var user = await _dbContext.FindAsync<User>( id , cancellationToken);
-        if (user is not null)
-            return user;
-        throw new ArgumentNullException(nameof(user));
+        return user;
     }
     /// <summary>
     /// Update User
@@ -88,5 +86,13 @@ public class UserRepository : IUserRepository
     public async Task<List<User>> GetAllListAsync(CancellationToken cancellationToken)
     {
         return await _dbContext.Set<User>().ToListAsync(cancellationToken);
+    }
+
+    public async Task<User> LoginAsync(string email, string password, CancellationToken cancellationToken)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Email == email, cancellationToken);
+        if (user is null) return null;
+        
+        return user.Password != password ? null : user;
     }
 }

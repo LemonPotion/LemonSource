@@ -41,7 +41,7 @@ public class UserController : ControllerBase
     public async Task<IActionResult> GetUserById(Guid id, CancellationToken cancellationToken)
     {
         var response = await _userService.GetUserByIdAsync(id, cancellationToken);
-        if (response == null)
+        if (response is null)
             return NotFound();
         return Ok(response);
     }
@@ -83,6 +83,17 @@ public class UserController : ControllerBase
     public async Task<IActionResult> GetAllUsers(CancellationToken cancellationToken)
     {
         var response = await _userService.GetAllUsersAsync(cancellationToken);
+        return Ok(response);
+    }
+
+    [HttpGet("Login")]
+    public async Task<IActionResult> LoginUser(string email, string password, CancellationToken cancellationToken)
+    {
+        var response = await _userService.LoginAsync(email, password, cancellationToken);
+        if (response is null)
+        {
+            return NotFound(response);
+        }
         return Ok(response);
     }
 }

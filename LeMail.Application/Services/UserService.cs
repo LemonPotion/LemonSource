@@ -53,10 +53,16 @@ namespace LeMail.Application.Services
             return await _userRepository.DeleteByIdAsync(id, cancellationToken);
         }
 
-        public async Task<List<CreateUserResponse>> GetAllUsersAsync(CancellationToken cancellationToken)
+        public async Task<List<GetUserResponse>> GetAllUsersAsync(CancellationToken cancellationToken)
         {
             var userEntities = await _userRepository.GetAllListAsync(cancellationToken);
-            return _mapper.Map<List<CreateUserResponse>>(userEntities);
+            return _mapper.Map<List<GetUserResponse>>(userEntities);
+        }
+
+        public async Task<GetUserResponse> LoginAsync(string email, string password, CancellationToken cancellationToken)
+        {
+            var user = await _userRepository.LoginAsync(email, password, cancellationToken);
+            return _mapper.Map<GetUserResponse>(user);
         }
     }
 
