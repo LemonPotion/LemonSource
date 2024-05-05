@@ -15,7 +15,6 @@ public class FileService : IFileService
         {
             Directory.CreateDirectory(directory);
         }
-        
         await file.CopyToAsync(stream);
         return true;
     }
