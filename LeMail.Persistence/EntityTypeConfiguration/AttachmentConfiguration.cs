@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LeMail.Persistence.EntityTypeConfiguration;
 
+//TODO: добавить вторичный ключ от Article
 public class AttachmentConfiguration : IEntityTypeConfiguration<Attachment>
 {
     public void Configure(EntityTypeBuilder<Attachment> builder)
@@ -13,8 +14,5 @@ public class AttachmentConfiguration : IEntityTypeConfiguration<Attachment>
         builder.Property(attachment => attachment.FilePath).IsRequired().HasColumnName("filePath");
         builder.Property(attachment => attachment.FileType).HasColumnName("fileType");
         
-        builder.HasOne(attachment => attachment.Message)
-            .WithMany(message => message.Attachments)
-            .HasForeignKey(attachment => attachment.MessageId);
     }
 }

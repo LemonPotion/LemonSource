@@ -19,11 +19,12 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0-preview.3.24172.9" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LeMail.Application\LeMail.Application.csproj" />
-      <ProjectReference Include="..\LeMail.Domain\LeMail.Domain.csproj" />
+      <ProjectReference Include="..\LemonSource.Application\LemonSource.Application.csproj" />
+      <ProjectReference Include="..\LemonSource.Domain\LemonSource.Domain.csproj" />
     </ItemGroup>
 
 </Project>

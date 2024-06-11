@@ -27,14 +27,6 @@ namespace LeMail.WebApi
             // Регистрация сервисов и репозиториев
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
-            
-            builder.Services.AddScoped<IMessageRepository, MessageRepository>();
-            builder.Services.AddScoped<IMessageService, MessageService>();
-
-            builder.Services.AddScoped<IContactRepository,ContactRepository>();
-            builder.Services.AddScoped<IContactService, ContactService>();
-            
-            builder.Services.AddScoped<IEmailService, EmailService>();
 
             builder.Services.AddScoped<IAttachmentService, AttachmentService>();
             builder.Services.AddScoped<IAttachmentRepository, AttachmentRepository>();
@@ -42,10 +34,8 @@ namespace LeMail.WebApi
             builder.Services.AddScoped<IFileService, FileService>();
             
             // Настройка AutoMapper
-            builder.Services.AddAutoMapper(typeof(UserMappingProfile));
-            builder.Services.AddAutoMapper(typeof(MessageMappingProfile));
-            builder.Services.AddAutoMapper(typeof(ContactMappingProfile));
-            builder.Services.AddAutoMapper(typeof(AttachmentMappingProfile));
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
             var app = builder.Build();
 

@@ -12,22 +12,24 @@ public class DatabaseContext : DbContext
     {
 
     }
+    
     /// <summary>
     /// User entity DbSet
     /// </summary>
     public DbSet<User> Users { get; set; }
-    /// <summary>
-    /// Contact entity DbSet
-    /// </summary>
-    public DbSet<Contact> Contacts { get; set; }
-    /// <summary>
-    /// Message entity DbSet
-    /// </summary>
-    public DbSet<Message> Messages { get; set; }
-    /// <summary>
-    /// Attachments entity DbSet
-    /// </summary>
-    public DbSet<Attachment> Attachments{ get; set; }
+    
+    public DbSet<Reviewer> Reviewers { get; set; }
+    
+    public DbSet<Review> Reviews { get; set; }
+    
+    public DbSet<Issue> Issues { get; set; }
+    
+    public DbSet<Author> Authors { get; set; }
+    
+    public DbSet<Attachment> Attachments { get; set; }
+    
+    public DbSet<Article> Articles { get; set; }
+    
     /// <summary>
     /// Applying configurations 
     /// </summary>
@@ -36,8 +38,11 @@ public class DatabaseContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new UserConfiguration());
-        modelBuilder.ApplyConfiguration(new ContactConfiguration());
-        modelBuilder.ApplyConfiguration(new MessageConfiguration());
         modelBuilder.ApplyConfiguration(new AttachmentConfiguration());
+        modelBuilder.ApplyConfiguration(new ReviewerConfiguration());
+        modelBuilder.ApplyConfiguration(new ReviewConfiguration());
+        modelBuilder.ApplyConfiguration(new IssueConfiguration());
+        modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+        modelBuilder.ApplyConfiguration(new ArticleConfiguration());
     }
 }

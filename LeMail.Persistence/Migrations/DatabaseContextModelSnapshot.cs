@@ -22,6 +22,57 @@ namespace LeMail.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("LeMail.Domain.Entities.Article", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 6, 11, 0, 0, 0, 0, DateTimeKind.Local))
+                        .HasColumnName("createDate");
+
+                    b.Property<string>("Genre")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("genre");
+
+                    b.Property<string>("Link")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("link");
+
+                    b.Property<string>("Objective")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("objective");
+
+                    b.Property<int>("Rating")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("rating");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("title");
+
+                    b.Property<int>("Views")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("views");
+
+                    b.HasKey("Id")
+                        .HasName("articleId");
+
+                    b.ToTable("Articles");
+                });
+
             modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
                 {
                     b.Property<Guid>("Id")
@@ -44,94 +95,112 @@ namespace LeMail.Persistence.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("fileType");
 
-                    b.Property<Guid>("MessageId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id")
                         .HasName("attachmentId");
-
-                    b.HasIndex("MessageId");
 
                     b.ToTable("Attachments");
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.Contact", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Author", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ContactMail")
-                        .IsRequired()
+                    b.Property<string>("Degree")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
-                        .HasColumnName("contactMail");
+                        .HasColumnName("degree");
 
-                    b.Property<string>("ContactName")
+                    b.Property<string>("NickName")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
-                        .HasColumnName("contactName");
+                        .HasColumnName("nickName");
+
+                    b.HasKey("Id")
+                        .HasName("authorId");
+
+                    b.ToTable("Authors");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Issue", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("description");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("title");
 
                     b.HasKey("Id")
-                        .HasName("contactId");
+                        .HasName("issueId");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Contacts");
+                    b.ToTable("Issues");
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.Message", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Review", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Objective")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("objective");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("reviewId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Reviewer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Body")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("body");
-
-                    b.Property<DateTime>("DateSent")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("dateSent");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("subject");
-
-                    b.Property<string>("To")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("to");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Degree")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("degree");
 
                     b.HasKey("Id")
-                        .HasName("messageId");
+                        .HasName("reviewerId");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Messages");
+                    b.ToTable("Reviewers");
                 });
 
             modelBuilder.Entity("LeMail.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -154,41 +223,125 @@ namespace LeMail.Persistence.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Article", b =>
                 {
-                    b.HasOne("LeMail.Domain.Entities.Message", "Message")
-                        .WithMany("Attachments")
-                        .HasForeignKey("MessageId")
+                    b.HasOne("LeMail.Domain.Entities.Attachment", "Attachment")
+                        .WithMany("Articles")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Message");
+                    b.HasOne("LeMail.Domain.Entities.Author", "Author")
+                        .WithMany("Articles")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeMail.Domain.Entities.Review", "Reviews")
+                        .WithMany("Articles")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Attachment");
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.Contact", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Author", b =>
                 {
-                    b.HasOne("LeMail.Domain.Entities.User", "User")
-                        .WithMany("Contacts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.OwnsOne("LeMail.Domain.ValueObjects.FullName", "FullName", b1 =>
+                        {
+                            b1.Property<Guid>("AuthorId")
+                                .HasColumnType("uniqueidentifier");
 
-                    b.Navigation("User");
+                            b1.Property<string>("FirstName")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("firstName");
+
+                            b1.Property<string>("LastName")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("lastName");
+
+                            b1.Property<string>("MiddleName")
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("middleName");
+
+                            b1.HasKey("AuthorId");
+
+                            b1.ToTable("Authors");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AuthorId");
+                        });
+
+                    b.Navigation("FullName");
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.Message", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Review", b =>
                 {
-                    b.HasOne("LeMail.Domain.Entities.User", "User")
-                        .WithMany("Messages")
-                        .HasForeignKey("UserId")
+                    b.HasOne("LeMail.Domain.Entities.Issue", "Issue")
+                        .WithMany("Reviews")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.HasOne("LeMail.Domain.Entities.Reviewer", "Reviewer")
+                        .WithMany("Reviews")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Issue");
+
+                    b.Navigation("Reviewer");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Reviewer", b =>
+                {
+                    b.OwnsOne("LeMail.Domain.ValueObjects.FullName", "FullName", b1 =>
+                        {
+                            b1.Property<Guid>("ReviewerId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("FirstName")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("firstName");
+
+                            b1.Property<string>("LastName")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("lastName");
+
+                            b1.Property<string>("MiddleName")
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("middleName");
+
+                            b1.HasKey("ReviewerId");
+
+                            b1.ToTable("Reviewers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ReviewerId");
+                        });
+
+                    b.Navigation("FullName")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LeMail.Domain.Entities.User", b =>
                 {
+                    b.HasOne("LeMail.Domain.Entities.Article", "Article")
+                        .WithMany("Users")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.OwnsOne("LeMail.Domain.ValueObjects.FullName", "FullName", b1 =>
                         {
                             b1.Property<Guid>("UserId")
@@ -216,20 +369,40 @@ namespace LeMail.Persistence.Migrations
                                 .HasForeignKey("UserId");
                         });
 
+                    b.Navigation("Article");
+
                     b.Navigation("FullName")
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.Message", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Article", b =>
                 {
-                    b.Navigation("Attachments");
+                    b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("LeMail.Domain.Entities.User", b =>
+            modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
                 {
-                    b.Navigation("Contacts");
+                    b.Navigation("Articles");
+                });
 
-                    b.Navigation("Messages");
+            modelBuilder.Entity("LeMail.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("Articles");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Issue", b =>
+                {
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Review", b =>
+                {
+                    b.Navigation("Articles");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.Reviewer", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }
