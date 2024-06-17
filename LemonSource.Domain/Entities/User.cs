@@ -28,7 +28,7 @@ public class User : BaseEntity
     public FullName FullName { get; set; }
     
     public DateTime CreateDate { get; set; } = DateTime.Today; 
-    public Article Article { get; set; }
+    public ICollection<Article> Articles { get; set; }
 
     public User()
     {

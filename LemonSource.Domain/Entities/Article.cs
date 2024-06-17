@@ -13,7 +13,7 @@ public class Article : BaseEntity
     
     // Navigation properties
     public Attachment? Attachment { get; set; }
-    public ICollection<User> Users { get; set; }
+    public User  User { get; set; }
     public Author? Author { get; set; }
     
     public Review? Reviews { get; set; }

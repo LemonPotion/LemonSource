@@ -1,7 +1,6 @@
 
 using LeMail.Application.Interfaces.Repository;
 using LeMail.Application.Interfaces.Services;
-using LeMail.Application.Mapping;
 using LeMail.Application.Services;
 using LeMail.Persistence;
 using LeMail.Persistence.Repositories;
@@ -30,6 +29,21 @@ namespace LeMail.WebApi
 
             builder.Services.AddScoped<IAttachmentService, AttachmentService>();
             builder.Services.AddScoped<IAttachmentRepository, AttachmentRepository>();
+
+            builder.Services.AddScoped<IReviewerService, ReviewerService>();
+            builder.Services.AddScoped<IReviewerRepository, ReviewerRepository>();
+            
+            builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+            
+            builder.Services.AddScoped<IIssueService, IssueService>();
+            builder.Services.AddScoped<IIssueRepository, IssueRepository>();
+            
+            builder.Services.AddScoped<IAuthorService, AuthorService>();
+            builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+            
+            builder.Services.AddScoped<IArticleService, ArticleService>();
+            builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 
             builder.Services.AddScoped<IFileService, FileService>();
             

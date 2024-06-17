@@ -5,7 +5,6 @@ using LeMail.Domain.Validations;
 using LeMail.Domain.Validations.Validators.Entities;
 using Microsoft.EntityFrameworkCore;
 
-//TODO: сделать репозитории длля всех сущностей
 namespace LeMail.Persistence.Repositories;
 /// <summary>
 /// User repository

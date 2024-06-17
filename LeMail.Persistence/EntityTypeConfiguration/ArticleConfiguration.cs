@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LeMail.Persistence.EntityTypeConfiguration;
-//TODO: сделать конфигурации вручную (нормальные)
+
 /// <summary>
 /// Article entity configuration
 /// </summary>
@@ -32,5 +32,8 @@ public class ArticleConfiguration : IEntityTypeConfiguration<Article>
         builder.HasOne<Review>(x => x.Reviews)
             .WithMany(x => x.Articles)   
             .HasForeignKey(x => x.Id);
+        builder.HasOne<User>(x => x.User)
+            .WithMany(x => x.Articles)
+            .HasForeignKey(x=> x.Id);
     }
 }

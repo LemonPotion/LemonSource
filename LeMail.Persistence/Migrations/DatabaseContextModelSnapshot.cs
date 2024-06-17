@@ -30,7 +30,7 @@ namespace LeMail.Persistence.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 11, 0, 0, 0, 0, DateTimeKind.Local))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 0, 0, 0, 0, DateTimeKind.Local))
                         .HasColumnName("createDate");
 
                     b.Property<string>("Genre")
@@ -197,6 +197,7 @@ namespace LeMail.Persistence.Migrations
             modelBuilder.Entity("LeMail.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreateDate")
@@ -243,11 +244,19 @@ namespace LeMail.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LeMail.Domain.Entities.User", "User")
+                        .WithMany("Articles")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Attachment");
 
                     b.Navigation("Author");
 
                     b.Navigation("Reviews");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("LeMail.Domain.Entities.Author", b =>
@@ -336,12 +345,6 @@ namespace LeMail.Persistence.Migrations
 
             modelBuilder.Entity("LeMail.Domain.Entities.User", b =>
                 {
-                    b.HasOne("LeMail.Domain.Entities.Article", "Article")
-                        .WithMany("Users")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.OwnsOne("LeMail.Domain.ValueObjects.FullName", "FullName", b1 =>
                         {
                             b1.Property<Guid>("UserId")
@@ -369,15 +372,8 @@ namespace LeMail.Persistence.Migrations
                                 .HasForeignKey("UserId");
                         });
 
-                    b.Navigation("Article");
-
                     b.Navigation("FullName")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("LeMail.Domain.Entities.Article", b =>
-                {
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
@@ -403,6 +399,11 @@ namespace LeMail.Persistence.Migrations
             modelBuilder.Entity("LeMail.Domain.Entities.Reviewer", b =>
                 {
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("LeMail.Domain.Entities.User", b =>
+                {
+                    b.Navigation("Articles");
                 });
 #pragma warning restore 612, 618
         }

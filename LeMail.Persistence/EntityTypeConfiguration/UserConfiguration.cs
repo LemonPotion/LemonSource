@@ -26,10 +26,6 @@ namespace LeMail.Persistence.EntityTypeConfiguration
                     fullName.Property(name => name.LastName).HasColumnName("lastName");
                     fullName.Property(name => name.MiddleName).HasColumnName("middleName");
                 });
-
-            builder.HasOne<Article>(x => x.Article)
-                .WithMany(x => x.Users)
-                .HasForeignKey(x=>x.Id);
         }
     }
 }
