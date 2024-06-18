@@ -10,7 +10,6 @@ public class Article : BaseEntity
     public string? Genre { get; set; }
     
     public Guid AttachmentId { get; set; }
-    public DateTime CreateDate { get; set; } = DateTime.Today;
     public int Views { get; set; } = 0;
     
     // Navigation properties

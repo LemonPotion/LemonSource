@@ -26,8 +26,6 @@ public class User : BaseEntity
     /// User fullname 
     /// </summary>
     public FullName FullName { get; set; }
-    
-    public DateTime CreateDate { get; set; } = DateTime.Today; 
     public ICollection<Article> Articles { get; set; }
 
     public User()

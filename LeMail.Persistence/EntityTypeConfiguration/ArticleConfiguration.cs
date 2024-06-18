@@ -18,7 +18,6 @@ public class ArticleConfiguration : IEntityTypeConfiguration<Article>
         builder.Property(article => article.Link).HasMaxLength(500).HasColumnName("link");
         builder.Property(article => article.Rating).IsRequired().HasDefaultValue(0).HasColumnName("rating");
         builder.Property(article => article.Views).IsRequired().HasDefaultValue(0).HasColumnName("views");
-        builder.Property(article => article.CreateDate).IsRequired().HasDefaultValue(DateTime.Today).HasColumnName("createDate");
 
         builder.HasOne(x => x.Attachment)
             .WithMany(x => x.Articles)
