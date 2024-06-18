@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeMail.Persistence", "LeMai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeMail.WebApi", "LeMail.WebApi\LeMail.WebApi.csproj", "{7AAB4D39-7378-45F6-9402-86AA46601C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeMail.Test", "LeMail.Test\LeMail.Test.csproj", "{BF01E1F7-45A4-41E5-89D9-3562F523762E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,10 +41,6 @@ Global
 		{7AAB4D39-7378-45F6-9402-86AA46601C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AAB4D39-7378-45F6-9402-86AA46601C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AAB4D39-7378-45F6-9402-86AA46601C9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF01E1F7-45A4-41E5-89D9-3562F523762E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF01E1F7-45A4-41E5-89D9-3562F523762E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF01E1F7-45A4-41E5-89D9-3562F523762E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF01E1F7-45A4-41E5-89D9-3562F523762E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,7 +50,6 @@ Global
 		{6BC69BB3-10B5-44B9-B13B-CDA6F4FF38F3} = {D0E55D3B-437E-4D6D-9C31-858B4EBF9009}
 		{626A851B-86FD-42A4-87B2-7A1703F96310} = {B86F566F-DBF0-48D3-96D2-70B005DAC1C6}
 		{7AAB4D39-7378-45F6-9402-86AA46601C9F} = {9752A916-C1C8-49E1-BDB6-CFECDB6C4E5B}
-		{BF01E1F7-45A4-41E5-89D9-3562F523762E} = {4A863278-B48E-4E6D-BCCC-018891120656}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {517D9625-DADF-49F5-820B-BF66F70A8D68}

@@ -25,12 +25,19 @@ namespace LeMail.Persistence.Migrations
             modelBuilder.Entity("LeMail.Domain.Entities.Article", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AttachmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 17, 0, 0, 0, 0, DateTimeKind.Local))
+                        .HasDefaultValue(new DateTime(2024, 6, 18, 0, 0, 0, 0, DateTimeKind.Local))
                         .HasColumnName("createDate");
 
                     b.Property<string>("Genre")
@@ -55,11 +62,17 @@ namespace LeMail.Persistence.Migrations
                         .HasDefaultValue(0)
                         .HasColumnName("rating");
 
+                    b.Property<Guid>("ReviewId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
                         .HasColumnName("title");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Views")
                         .ValueGeneratedOnAdd()
@@ -69,6 +82,12 @@ namespace LeMail.Persistence.Migrations
 
                     b.HasKey("Id")
                         .HasName("articleId");
+
+                    b.HasIndex("AttachmentId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Articles");
                 });
@@ -153,6 +172,9 @@ namespace LeMail.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ArticleId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(5000)
@@ -173,6 +195,8 @@ namespace LeMail.Persistence.Migrations
 
                     b.HasKey("Id")
                         .HasName("reviewId");
+
+                    b.HasIndex("ArticleId");
 
                     b.ToTable("Reviews");
                 });
@@ -228,33 +252,25 @@ namespace LeMail.Persistence.Migrations
                 {
                     b.HasOne("LeMail.Domain.Entities.Attachment", "Attachment")
                         .WithMany("Articles")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("AttachmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LeMail.Domain.Entities.Author", "Author")
                         .WithMany("Articles")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LeMail.Domain.Entities.Review", "Reviews")
-                        .WithMany("Articles")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LeMail.Domain.Entities.User", "User")
                         .WithMany("Articles")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Attachment");
 
                     b.Navigation("Author");
-
-                    b.Navigation("Reviews");
 
                     b.Navigation("User");
                 });
@@ -293,6 +309,12 @@ namespace LeMail.Persistence.Migrations
 
             modelBuilder.Entity("LeMail.Domain.Entities.Review", b =>
                 {
+                    b.HasOne("LeMail.Domain.Entities.Article", "Article")
+                        .WithMany("Reviews")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LeMail.Domain.Entities.Issue", "Issue")
                         .WithMany("Reviews")
                         .HasForeignKey("Id")
@@ -304,6 +326,8 @@ namespace LeMail.Persistence.Migrations
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Article");
 
                     b.Navigation("Issue");
 
@@ -376,6 +400,11 @@ namespace LeMail.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("LeMail.Domain.Entities.Article", b =>
+                {
+                    b.Navigation("Reviews");
+                });
+
             modelBuilder.Entity("LeMail.Domain.Entities.Attachment", b =>
                 {
                     b.Navigation("Articles");
@@ -389,11 +418,6 @@ namespace LeMail.Persistence.Migrations
             modelBuilder.Entity("LeMail.Domain.Entities.Issue", b =>
                 {
                     b.Navigation("Reviews");
-                });
-
-            modelBuilder.Entity("LeMail.Domain.Entities.Review", b =>
-                {
-                    b.Navigation("Articles");
                 });
 
             modelBuilder.Entity("LeMail.Domain.Entities.Reviewer", b =>

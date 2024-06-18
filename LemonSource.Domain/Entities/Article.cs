@@ -8,15 +8,20 @@ public class Article : BaseEntity
     public string Title { get; set; }
     public string Objective { get; set; }
     public string? Genre { get; set; }
+    
+    public Guid AttachmentId { get; set; }
     public DateTime CreateDate { get; set; } = DateTime.Today;
     public int Views { get; set; } = 0;
     
     // Navigation properties
     public Attachment? Attachment { get; set; }
     public User  User { get; set; }
+    public Guid UserId { get; set; }
     public Author? Author { get; set; }
     
-    public Review? Reviews { get; set; }
+    public Guid AuthorId { get; set; }
+    public ICollection<Review>? Reviews { get; set; }
+    public Guid ReviewId { get; set; }
     
     public void Update(int rating, string link, string title, string objective, string genre, int views)
     {

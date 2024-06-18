@@ -8,8 +8,8 @@ public class Review : BaseEntity
     
 
     
-    public ICollection<Article> Articles { get; set; }
-
+    public Article Article { get; set; }
+    public Guid ArticleId { get; set; }
 
     // Navigation properties
     public Issue Issue { get; set; }
