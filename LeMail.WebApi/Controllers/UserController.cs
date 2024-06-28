@@ -74,18 +74,20 @@ public class UserController : ControllerBase
             return NotFound();
         return NoContent();
     }
-    /// <summary>
-    /// Get all users query
-    /// </summary>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    
+
     [HttpGet]
-    public async Task<IActionResult> GetAllUsers(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllUsers(int pageNumber, int pageSize, CancellationToken cancellationToken)
     {
         var response = await _userService.GetAllUsersAsync(cancellationToken);
-        return Ok(response);
+    
+        var paginatedResponse = response.Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+    
+        return Ok(paginatedResponse);
     }
-
+    
     [HttpGet("Login")]
     public async Task<IActionResult> LoginUser(string email, string password, CancellationToken cancellationToken)
     {

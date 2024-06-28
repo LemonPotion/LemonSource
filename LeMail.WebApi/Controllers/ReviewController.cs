@@ -80,10 +80,15 @@ namespace LeMail.WebApi.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAll(int pageNumber , int pageSize , CancellationToken cancellationToken)
         {
             var response = await _reviewService.GetAllAsync(cancellationToken);
-            return Ok(response);
+    
+            var paginatedResponse = response.Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+    
+            return Ok(paginatedResponse);
         }
     }
 }
